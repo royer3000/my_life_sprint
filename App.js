@@ -1,177 +1,123 @@
-import React from 'react';
-import { StyleSheet, Text, Image, View, TextInput,TouchableOpacity, Modal } from 'react-native';
+import React from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator} from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import LoginScreen from './screens/AppSwitchNavigator/LoginScreen';
+import WorkInProgress from './screens/DrawerScreen/WorkInProgress';
+import PotencialEarning from './screens/DrawerScreen/PotencialEarning';
+import SalesRecord from './screens/DrawerScreen/SalesRecord';
+import MessagesMyLife from './screens/DrawerScreen/MessagesMyLife';
+import LeaderBoard from './screens/DrawerScreen/LeaderBoard';
+import SettingMyLife from './screens/DrawerScreen/SettingMyLife';
+import TutorialMyLife from './screens/DrawerScreen/TutorialMyLife';
+import SignUpScreen from './screens/SignUpScreen';
+import ProductScreen from './screens/ProductScreen';
+import { firebaseApp} from './config/config.js';
+import LoadingScreen from './screens/LoadingScreen';
 
 
 
 
-import Login from './screens/Login'
-
-const HomeScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-            <View style={styles.vacio}>
-                <Text></Text>
-            </View>
-            <View style ={styles.logo}>
-                <Image 
-                style ={styles.logo}
-                source = {require ('./assets/logo.png')}
-                />
-            </View>
-
-            <TextInput 
-            style = {styles.inputBox} 
-            placeholder ="USERNAME"
-            returnKeyType ="next"
-            onSubmitEditing = {() => this.passwordInput.focus()}
-            keyboardType = "email-address"
-            autoCapitalize ="none"
-            autoCorrect = {false} 
-            placeholderTextColor = 'white'
-
-            />
-            
-            <TextInput 
-            style = {styles.inputBox} 
-            placeholder ="PASSWORD"
-            returnKeyType = "go"
-            placeholderTextColor = 'white'
-            secureTextEntry
-            ref = {(input) => this.passwordInput = input}
-            
-            />
-            
-            <TouchableOpacity style ={styles.button} onPress = {()=> navigation.navigate('Detalle')}>
-                <Text style = {styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-            <View style={styles.vacio}>
-                <Text></Text>
-            </View>
-            <Login/>
-    </View>
-  );
-}
-
-const DetalleScreen = ({navigation})=>{
-  return(
-    <View style={styles.container}>
-
-          <View style ={styles.imagen2}>
-                <Image 
-                style ={styles.imagen2}
-                source = {require ('./assets/principal.png')}
-                />
-            </View>
-  </View>
-
-  )
-}
-
-const AppNavigator = createSwitchNavigator({
-  Home:{
-    screen: HomeScreen
-  },
-  Detalle: {
-    screen: DetalleScreen
-  }
-
-}, {initialRouteName:'Home' })
 
 
-export default createAppContainer(AppNavigator)
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#212533',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const ProductDrawerNavigator = createDrawerNavigator({
+    ProductScreen: {
+        screen: ProductScreen,
+        navigationOptions:{
+            title:"Home",
+        }
+    },
 
-  logo:{
+    WorkInProgress: {
+        screen: WorkInProgress,
+        navigationOptions:{
+            title:"Wor in Progress",
+        }
+    },
+
+    PotencialEarning: {
+        screen: PotencialEarning,
+        navigationOptions:{
+            title:"Potencial Earning",
+        }
+    },
+    SalesRecord: {
+        screen: SalesRecord,
+        navigationOptions:{
+            title:"Sales Record",
+        }
+    },
+    MessagesMyLife: {
+        screen: MessagesMyLife,
+        navigationOptions:{
+            title:"Messages",
+        }
+    },
+    LeaderBoard: {
+        screen: LeaderBoard,
+        navigationOptions:{
+            title:"Leader Board",
+        }
+    },
+    SettingMyLife: {
+        screen: SettingMyLife,
+        navigationOptions:{
+            title:"Setting",
+        }
+    },
+    TutorialMyLife: {
+        screen: TutorialMyLife,
+        navigationOptions:{
+            title:"Tutorials",
+        }
+    }
+
+})
+
+const AppStack = createStackNavigator({
+
+    Home:{
+        screen: ProductDrawerNavigator,
+        navigationOptions:{
+            header:null
+        }
+    }, 
+})
+
+const AuthStack = createStackNavigator({
+
+    Login:{
+        screen: LoginScreen,
+        navigationOptions:{
+            header:null
+        }
+    }, 
+    Register:{
+        screen: SignUpScreen,
+        navigationOptions:{
+            headerStyle: {
+                backgroundColor: '#1D212D',
+              },
+        }
+    }, 
+
+})
 
 
-    width:240,
-    height:100,
-    alignItems: 'center',
+export default createAppContainer(
+    createSwitchNavigator({
 
-  },
-
-  inputBox:{
-
-      width:240,
-      height:40,
-      backgroundColor: '#1a1d2a',
-      borderColor: 'gray',
-      borderWidth: 0.25,
-      fontSize : 13,
-      marginVertical:10,
-      paddingHorizontal:13,
-      color: "white",
-      
-  },
-
-  vacio:{
-      flex:1,
-      alignItems: 'center',
-  },
-
-  comsign:{
-    flex:0.3,
-    fontSize : 13,
-    flexDirection: "row",
-    justifyContent: 'space-between',
+        Loading: LoadingScreen,
+        App: AppStack,
+        Auth: AuthStack
+    },
+    {
+        initialRouteName: "Loading"
+    }
     
-    
-  },
-
-  button:{
-
-      width:240,
-      backgroundColor: '#1a1d2a',
-      marginVertical:10,
-      paddingVertical:10,
-
-
-  },
-
-  buttonText:{
-
-      fontSize:16,
-      fontWeight:'500',
-      color:'#ffffff',
-      textAlign:'center',
-  },
-
-  signcolor:{
-      color: 'aquamarine',
-  },
-  
-  logo2:
-  {
-    width:100,
-    height:100,
-    alignItems: 'center',
-  },
-  regisText:{
-    fontSize:32,
-    color:"#88ecea",
-    borderColor:"white",
-
-
-  },
-  imagen2:{
-
-    width: 350,
-    height:700,
-    alignItems: 'center',
-
-  }
-
-});
-
+    )
+)
 
 
