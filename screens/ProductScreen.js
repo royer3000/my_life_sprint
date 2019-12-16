@@ -6,9 +6,11 @@ import * as firebase from 'firebase';
 class ProductScreen extends React.Component {
 
     state = {
+
         email: "",
         displayName: ""
-    }
+    };
+    
     componentDidMount(){
         const {email, displayName} = firebase.auth().currentUser;
 
@@ -16,8 +18,8 @@ class ProductScreen extends React.Component {
     }
 
     signOutUser = () => {
-        firebase.auth().signOut;
-    }
+        firebase.auth().signOut();
+    };
 
     render(){
         return(
@@ -44,7 +46,7 @@ class ProductScreen extends React.Component {
                 <View style={styles.view1} >
                     <View style={styles.viewP} > 
                         <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={this._onPressButton}>
+                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('FuneralCoverScreen')}>
                                 <Image style={{width:80, height:80}}
                                 source={require('../assets/funeraIcon.png')}
                                 />
@@ -58,7 +60,7 @@ class ProductScreen extends React.Component {
                 <View style={styles.view2} >
                     <View style={styles.viewP} >
                         <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('LegalCoverScreen')}>
                                 <Image style={{width:70, height:65}}
                                 source={require('../assets/legalCoverIcon.png')}
                                 />
@@ -71,7 +73,7 @@ class ProductScreen extends React.Component {
                 <View style={styles.view3} >
                     <View style={styles.viewP} >
                         <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('RewardScreen')}>
                                 <Image style={{width:80, height:80}}
                                 source={require('../assets/rewardIcon.png')}
                                 />
@@ -84,19 +86,26 @@ class ProductScreen extends React.Component {
                 <View style={styles.view4} >
                     <View style={styles.viewP} >  
                         <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('SavingPlanScreen')}>
                                     <Image style={{width:80, height:80}}
-                                    source={require('../assets/savingPlanIcon.png')}
-                                    />
+                                    source={require('../assets/savingPlanIcon.png')}></Image>
+                                    
                                     <Text style={{color:'orangered', fontSize:24}}> Saving Plan</Text> 
                             </TouchableOpacity>    
                         </View>                   
                     </View>
                 </View>
 
-
-                
+             
             </Content>
+            <View style={{flexDirection: 'colum', alignSelf : 'center', justifyContent: 'center'}}>
+                    <Text style={{color:'orangered', fontSize:24}}> Hi {this.state.email}!</Text> 
+                            <TouchableOpacity style={{flexDirection: 'colum', alignItems: 'center', justifyContent: 'flex-start'}} onPress = {this.signOutUser}>
+
+                            <Text style={{color:'orangered', fontSize:24}}> Logout</Text> 
+                            </TouchableOpacity>    
+                </View>
+                <View><Text> </Text></View>
 
             
           </Container>

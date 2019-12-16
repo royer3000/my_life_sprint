@@ -6,9 +6,8 @@ import * as firebase from 'firebase';
 class SignUpScreen extends React.Component {
 
     state = {
-        name: "",
         email: "",
-        password:"",
+        password: "",
         errorMessage: null
        
     };
@@ -17,11 +16,10 @@ class SignUpScreen extends React.Component {
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials => {
             return userCredentials.user.updateProfile({
                 displayName: this.state.name
-            })
+            });
         }).catch(error => this.setState({errorMessage: error.message}));
 
     };
-
 
 
 
@@ -31,26 +29,10 @@ class SignUpScreen extends React.Component {
 
                 <View style={{flex:1,alignItems: 'flex-start', justifyContent: 'center'}}>
                     <Image style={{width:100, height:100}}
-                    source={require('../assets/logo2.png')}
+                    source={require('../../assets/logo2.png')}
                     />
                 </View>
                 
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
-                        placeholder ="FULL NAME"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
-                    />
-
-                </View>
 
                 <View><Text> </Text></View>
 
@@ -96,10 +78,10 @@ class SignUpScreen extends React.Component {
 
 
                 <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity onPress={this.handleSignUp}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('PersonaleInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
                         <Image
                             style={{width:270, height: 40}}
-                            source={require('../assets/SignInBotton.png')}
+                            source={require('../../assets/SignInBotton.png')}
                         />
                     </TouchableOpacity>
                 </View>

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "My life project",
-    "slug": "mylifeproject",
+    "name": "My life project sprint 2",
+    "slug": "mylifeprojectsprintDos",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -9,7 +9,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -21,10 +21,15 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android":{
+      "package": "com.mylifeprojectsprintDos.mylifeprojectDos"
+      
+
     }
   }
 }

@@ -3,28 +3,12 @@ import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity} from "react-n
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
 
 
-
-export default class SettingMyLife extends React.Component{ 
+export default class LegalCoverScreen extends React.Component{ 
     render(){
     return(
-        <Container style={styles.container}>
-            <Header style={styles.container}>
-                
-                <Left  style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-                    <Icon style={{color: 'white'}} name= "ios-menu" onPress={()=>this.props.navigation.openDrawer()} />
-                    <Body>
-                    <Title style={{color: 'white', fontSize:22}}>Setting</Title>
-                    
-                    </Body>
+      <Container style={styles.container}>
 
-                </Left>
-
-                <Right/>
-                
-                
-            </Header>
-        </Container>
-
+      </Container>
         
 
         );
@@ -90,4 +74,3 @@ const styles = StyleSheet.create({
       },
 
 })
-
