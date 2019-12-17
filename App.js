@@ -1,5 +1,7 @@
 import React from 'react'
+import {Button, Image, TouchableOpacity} from "react-native";
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator,createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator} from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import LoginScreen from './screens/AppSwitchNavigator/LoginScreen';
@@ -20,61 +22,129 @@ import { firebaseApp} from './config/config.js';
 import LoadingScreen from './screens/LoadingScreen';
 import SideBar from './components/SideBar.js'
 import { Dimensions } from 'react-native';
-import FuneralCoverScreen from './screens/ProductComponets/FuneralCoverScreen.js';
-import LegalCoverScreen from './screens/ProductComponets/LegalCoverScreen.js';
-import RewardScreen from './screens/ProductComponets/RewardScreen.js';
-import SavingPlanScreen from './screens/ProductComponets/SavingPlanScreen.js';
+import FuneralCoverScreen from './screens/ProductComponets/FuneralCoverOptions/FuneralCoverScreen.js';
+import FuneralCoverFamily from './screens/ProductComponets/FuneralCoverOptions/FuneralCoverFamily.js';
+import LegalCoverScreen from './screens/ProductComponets/LegalCoverOptions/LegalCoverScreen.js';
+import RewardScreen from './screens/ProductComponets/RewardOptions/RewardScreen.js';
+import SavingPlanScreen from './screens/ProductComponets/SavingPlanOptions/SavingPlanScreen.js';
 
 
 
+const FuneralTabs = createMaterialTopTabNavigator({
+    FuneralCoverScreen: {
+      screen: FuneralCoverScreen,
+      navigationOptions: {
+        tabBarLabel: 'Single',
+      },
+    },
+    profile: {
+        screen: FuneralCoverFamily,
+        navigationOptions: {
+            tabBarLabel: 'Family',
+          },
+      },
+
+  },{
+    tabBarOptions : {
+      style: {
+        backgroundColor: '#1D212D',
+      }
+    }
+  
+  });
+
+  const LegalTabs = createBottomTabNavigator({
+    LegalCoverScreen: {
+      screen: LegalCoverScreen,
+      navigationOptions: {
+        tabBarLabel: 'Legal Cover',
+      },
+    },
+    
+  },{
+    tabBarOptions:{
+        style:{
+            backgroundColor:'#1D212D',
+        }
+    }
+});
+
+  const RewardTabs = createBottomTabNavigator({
+    RewardScreen: {
+      screen: RewardScreen,
+      navigationOptions: {
+        tabBarLabel: 'RewardScreen',
+      },
+    },
+    
+
+  });
+  const SavingTabs = createBottomTabNavigator({
+    SavingPlanScreen: {
+      screen: SavingPlanScreen,
+      navigationOptions: {
+        tabBarLabel: 'SavingPlanScreen',
+      },
+    },
+    
+
+  });
 
 
 const ProductStackNavigator = createStackNavigator({
 
     ProductScreen:{
         screen: ProductScreen,
-        navigationOptions:{
-            header:null
-        }
+        navigationOptions:({navigation}) => ({
+            
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><Image style={{width:40, height: 40}} source={require('./assets/drawer.png')} /></TouchableOpacity>,
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+              title:"Product",
+              
+        }) 
     },
 
     FuneralCoverScreen:{
-        screen: FuneralCoverScreen,
+        screen: FuneralTabs,
         navigationOptions:{
             title:"Funeral Cover",
             headerStyle: {
-                backgroundColor: '#1D212D',
-              },
+                backgroundColor: "#1D212D",
+                
             
+              },
+              
             
         }
     },
     LegalCoverScreen:{
-        screen: LegalCoverScreen,
+        screen: LegalTabs,
         navigationOptions:{
             title:"Legal Cover",
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
             
         }
     },
     RewardScreen:{
-        screen: RewardScreen,
+        screen: RewardTabs,
         navigationOptions:{
             title:"Reward",
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
             
         }
     },
     SavingPlanScreen:{
-        screen: SavingPlanScreen,
+        screen: SavingTabs,
         navigationOptions:{
             title:"Saving Plan",
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
             
         }
@@ -145,19 +215,19 @@ const ProductDrawerNavigator = createDrawerNavigator({
 
     contentOptions: {
 
-        activeBackgroundColor:'#1D212D',
-        activeTintColor:'white',
-        inactiveTintColor: 'white',
+        activeBackgroundColor:"#1D212D",
+        activeTintColor:"#FFFFFF",
+        inactiveTintColor: "#FFFFFF",
         labelStyle:{ 
             marginLeft:5,
-            fontWeight: "400",
-            fontSize: 22,
+            fontWeight: "100",
+            fontSize: 20,
             
         },
         itemStyle: { 
             
             borderBottomWidth: 0.5,       
-            borderBottomColor: 'aquamarine' 
+            borderBottomColor: "#7fffd4" 
         }
     },
 
@@ -188,7 +258,7 @@ const AuthStack = createStackNavigator({
         screen: SignUpScreen,
         navigationOptions:{
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
         }
     },
@@ -196,7 +266,7 @@ const AuthStack = createStackNavigator({
         screen: PersonaleInformation,
         navigationOptions:{
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
         }
     },
@@ -204,7 +274,7 @@ const AuthStack = createStackNavigator({
         screen: PreviousJobInformation,
         navigationOptions:{
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
         }
     },
@@ -212,7 +282,7 @@ const AuthStack = createStackNavigator({
         screen: EmergencyContactInformation,
         navigationOptions:{
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
         }
     },
@@ -220,7 +290,7 @@ const AuthStack = createStackNavigator({
         screen: BanckDetails,
         navigationOptions:{
             headerStyle: {
-                backgroundColor: '#1D212D',
+                backgroundColor: "#1D212D",
               },
         }
     },

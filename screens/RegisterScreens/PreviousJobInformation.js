@@ -32,7 +32,7 @@ class PreviousJobInformation extends React.Component {
             <View style={styles.container}>
                 <ScrollView >
 
-                <View><Text  style={{fontSize:40}}> Previous Job Information</Text></View>
+                <View><Text  style={{fontSize:30, color:'white'}}> Previous Job Information</Text></View>
 
                 <View><Text> </Text></View>
                 
@@ -45,7 +45,7 @@ class PreviousJobInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Title"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -53,8 +53,8 @@ class PreviousJobInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                    
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -66,7 +66,7 @@ class PreviousJobInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Work Location"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -74,8 +74,8 @@ class PreviousJobInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                     
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -85,7 +85,7 @@ class PreviousJobInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Work Phone"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -93,8 +93,8 @@ class PreviousJobInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                        
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -106,7 +106,7 @@ class PreviousJobInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Start Date"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -114,8 +114,8 @@ class PreviousJobInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                       
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -125,7 +125,7 @@ class PreviousJobInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Position Applying"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -133,15 +133,15 @@ class PreviousJobInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                       
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
 
 
                 <View style={{margin:20, alignItems: 'center', justifyContent: 'center' }}>
-                {this.state.errorMessage && <Text style={{color:'white', fontSize: 20}}>{this.state.errorMessage}</Text>}
+                {this.state.errorMessage && <Text style={{color:"#FFFFFF", fontSize: 20}}>{this.state.errorMessage}</Text>}
                 </View>
 
 
@@ -168,14 +168,14 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: '#212533'
+        backgroundColor: "#212533"
         
 
     },
 
     containerDos:{
-        borderBottomColor:'#1D212D',
+        borderBottomColor:"#1D212D",
 
-        backgroundColor: '#1D212D'
+        backgroundColor: "#1D212D"
     }
 })

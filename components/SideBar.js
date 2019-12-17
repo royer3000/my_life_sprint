@@ -6,22 +6,19 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default Sidebar = props => (
     
-
-    
-        <View style={styles.container}>
-                    <Text> </Text>
-                    <Text> </Text>
-        <View style={{flex:0.6}} >
-            <Image style={{width:300, height:330}}
-                                    source={require('../assets/MenuIma.png')}
-            />
-
-
-            
-
+    <View style={styles.container}>
+        
+        
+            <Image style={{width:300, height:230,marginEnd:-5}}source={require('../assets/MenuIma.png')}
+            /> 
+        <ScrollView>
+        <View >
+        
         </View>
         <DrawerNavigatorItems {...props}/>
-        </View>
+        
+        </ScrollView>
+    </View>
     
 );
 

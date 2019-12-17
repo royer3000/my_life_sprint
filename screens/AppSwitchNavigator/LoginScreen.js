@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: "#FFFFFF",
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -32,7 +32,7 @@ export default class LoginScreen extends React.Component{
 
     render(){
     return(
-        <View style={{flex:1, backgroundColor:'#212533'}}>
+        <View style={{flex:1, backgroundColor:"#212533"}}>
             <View style={{flex:1}}><Text> </Text></View>
 
             <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}} >
@@ -45,7 +45,7 @@ export default class LoginScreen extends React.Component{
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                 <TextInput
-                    style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                    style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                     placeholder ="USERNAME"
                     returnKeyType ="next"
                     onChangeText = {email => this.setState({email})}
@@ -53,8 +53,8 @@ export default class LoginScreen extends React.Component{
                     keyboardType = "email-address"
                     autoCapitalize ="none"
                     autoCorrect = {false} 
-                    color = 'gray'
-                    placeholderTextColor = 'white'
+                
+                    placeholderTextColor = "#FFFFFF"
                 />
 
             </View>
@@ -64,11 +64,11 @@ export default class LoginScreen extends React.Component{
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                 <TextInput
-                    style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13  }}
+                    style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13  }}
                     placeholder ="PASSWORD"
                     returnKeyType = "go"
-                    color = 'gray'
-                    placeholderTextColor = 'white'
+                
+                    placeholderTextColor = "#FFFFFF"
                     secureTextEntry
                     autoCapitalize = "none"
                     onChangeText = {password => this.setState({password})}
@@ -88,13 +88,13 @@ export default class LoginScreen extends React.Component{
             </View>
             
             <View style={{margin:20, alignItems: 'center', justifyContent: 'center' }}>
-                {this.state.errorMessage && <Text style={{color:'white', fontSize: 20}}>{this.state.errorMessage}</Text>}
+                {this.state.errorMessage && <Text style={{color:"#FFFFFF", fontSize: 20}}>{this.state.errorMessage}</Text>}
             </View>
 
             <View style={{flex:2,flexDirection: 'row',alignItems: 'flex-end', justifyContent: 'center'}}>
-                <Text style={{color: 'gray'}}>Don't have an account?</Text>
+                <Text style={{color: "#808080"}}>Don't have an account?</Text>
                 <TouchableOpacity onPress={()=>this.props.navigation.navigate('Register')}>
-                    <Text style={{color:'aquamarine'}} > Sign up now </Text>
+                    <Text style={{color:"#7fffd4"}} > Sign up now </Text>
                 </TouchableOpacity>
             </View>
 

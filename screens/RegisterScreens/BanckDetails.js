@@ -33,7 +33,7 @@ class BanckDetails extends React.Component {
                 <ScrollView >
 
 
-                <View><Text  style={{fontSize:40}}> Bank Details</Text></View>
+                <View><Text  style={{fontSize:30, color:'white'}}> Bank Details</Text></View>
 
                     <View><Text> </Text></View>
                 <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
@@ -45,7 +45,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Bank Name"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -53,8 +53,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                      
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -66,7 +66,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Account Name"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -74,8 +74,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                      
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -85,7 +85,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Account Number"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -93,8 +93,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                      
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -106,7 +106,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Branch Code"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -114,8 +114,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                 
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -125,7 +125,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor:"#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Branch Name"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -133,8 +133,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                   
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -144,7 +144,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor:"#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Tax Number"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -152,8 +152,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                   
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -163,7 +163,7 @@ class BanckDetails extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Upload of Bank Statement "
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -171,8 +171,8 @@ class BanckDetails extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -180,7 +180,7 @@ class BanckDetails extends React.Component {
 
 
                 <View style={{margin:20, alignItems: 'center', justifyContent: 'center' }}>
-                {this.state.errorMessage && <Text style={{color:'white', fontSize: 20}}>{this.state.errorMessage}</Text>}
+                {this.state.errorMessage && <Text style={{color:"#FFFFFF", fontSize: 20}}>{this.state.errorMessage}</Text>}
                 </View>
 
 
@@ -207,14 +207,14 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: '#212533'
+        backgroundColor: "#212533"
         
 
     },
 
     containerDos:{
-        borderBottomColor:'#1D212D',
+        borderBottomColor:"#1D212D",
 
-        backgroundColor: '#1D212D'
+        backgroundColor: "#1D212D"
     }
 })

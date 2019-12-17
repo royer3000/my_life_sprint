@@ -32,7 +32,7 @@ class PersonalInformation extends React.Component {
             <View style={styles.container}>
                 <ScrollView >
 
-                <View><Text  style={{fontSize:40}}> Personal Information</Text></View>
+                <View><Text  style={{fontSize:30, color:'white'}}> Personal Information</Text></View>
                 <View><Text> </Text></View>
 
                 <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
@@ -44,7 +44,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Name"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -52,8 +52,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                       
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -65,7 +65,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Surname"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -73,8 +73,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                  
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -84,7 +84,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Address"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -92,8 +92,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                        
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -105,7 +105,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Province"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -113,8 +113,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                      
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -124,7 +124,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="City"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -132,8 +132,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                       
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -143,7 +143,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Suburb"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -151,8 +151,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                       
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -162,7 +162,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Zip Code"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -170,8 +170,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                 
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -181,7 +181,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Upload Foto"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -189,8 +189,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                      
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -200,7 +200,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Home Phone"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -208,8 +208,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                     
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -219,7 +219,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Cell Phone"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -227,8 +227,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -239,7 +239,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Upload Copy ID"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -247,8 +247,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -258,7 +258,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Birth Darte"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -266,8 +266,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                   
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -277,7 +277,7 @@ class PersonalInformation extends React.Component {
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor: '#1a1d2a',paddingHorizontal:13 }}
+                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
                         placeholder ="Age"
                         returnKeyType ="next"
                         onChangeText = {name => this.setState({name})}
@@ -285,8 +285,8 @@ class PersonalInformation extends React.Component {
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        color = 'gray'
-                        placeholderTextColor = 'white'
+                  
+                        placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
@@ -320,14 +320,14 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: '#212533'
+        backgroundColor: "#212533"
         
 
     },
 
     containerDos:{
-        borderBottomColor:'#1D212D',
+        borderBottomColor:"#1D212D",
 
-        backgroundColor: '#1D212D'
+        backgroundColor: "#1D212D"
     }
 })

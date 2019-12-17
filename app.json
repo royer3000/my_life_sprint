@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "My life project sprint 2",
-    "slug": "mylifeprojectsprintDos",
+    "name": "My life project sprint 3",
+    "slug": "mylifeprojectsprinttres",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -9,7 +9,7 @@
       "android",
       "web"
     ],
-    "version": "3.0.0",
+    "version": "4.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -27,7 +27,7 @@
       "supportsTablet": true
     },
     "android":{
-      "package": "com.mylifeprojectsprintDos.mylifeprojectDos"
+      "package": "com.mylifeprojectsprintTres.mylifeprojecttres"
       
 
     }
