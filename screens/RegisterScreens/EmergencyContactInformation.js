@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView} from "react-native";
+import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView,Picker} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
 import * as firebase from 'firebase';
 
@@ -9,9 +9,11 @@ class EmergencyContactInformation extends React.Component {
         name:"",
         email: this.props.navigation.getParam('userMail'),
         password: this.props.navigation.getParam('userPassword'),
+        CellPhone: this.props.navigation.getParam('UserCellPhone'),
         errorMessage: null
        
     };
+
 
     handleSignUp = () => {
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials => {
@@ -27,138 +29,129 @@ class EmergencyContactInformation extends React.Component {
 
     render(){
         return(
+            <Container style={styles.container}>
 
-            
-            <View style={styles.container}>
-                <ScrollView >
 
-                <View><Text  style={{fontSize:30, color:'white'}}> Emergency Contact Information</Text></View>
+            <Content>
+            <View style={{alignItems:'center'}}>
+            <View style={{paddingTop:5 }} >
+    
+            <View style={{width: 355, height: 500, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:0,borderBottomRightRadius:0, paddingTop:1,}}>
+                <View style={{alignItems:'center', paddingHorizontal:5}}>
+                    <ScrollView showsVerticalScrollIndicator={false} >
 
-                <View><Text> </Text></View>
+                        <View><Text style={{fontSize:20, color:'white',fontWeight:'200',paddingHorizontal:5,paddingVertical:5}}> Personal Information {"(3/3)"} </Text></View>
 
-                <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-                    <Image style={{width:100, height:100}}
-                    source={require('../../assets/logo2.png')}
-                    />
-                </View>
+
+                <View  style={{paddingVertical:5}} >
+                        
+                    <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Birthdate*</Text>
+                        
+                </View>                   
+
+                
                 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="FULL NAME"
+                        style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                        placeholder ="mm/dd/yyyy"
                         returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
+                        onChangeText = {Birthdate => this.setState({Birthdate})}
+                        value = {this.state.Birthdate}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        
+                    
                         placeholderTextColor = "#FFFFFF"
                     />
 
                 </View>
 
+                <View style={{paddingVertical:5}}>
+                                          <Text style={{color:'white', fontSize:13}}> Gender</Text>
+                                      </View>
 
-                <View><Text> </Text></View>
+                                      <View style={{ borderWidth:1, borderColor:'black', backgroundColor:'white' }}>
+                                          <Picker style={{width:'100%', height:35, color:'black', fontSize:13,  }} selectedValue={this.state.PickerValue}
+                                          onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
+                                            <Picker.Item label ='Female' value='Female'/>
+                                            <Picker.Item label ='male' value='male'/>
+                                          </Picker>
+                                      </View>
+
+
+                <View  style={{paddingVertical:5}} >
+                        
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Age</Text>
+                            
+                </View> 
 
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Address"
+                        style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                        placeholder ="00"
                         returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
+                        onChangeText = {Age => this.setState({Age})}
+                        value = {this.state.Age}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
-                        
                         placeholderTextColor = "#FFFFFF"
                     />
 
+                </View>
+             
+
+
+                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
                 </View>
 
                 <View><Text> </Text></View>
 
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Primary Phone"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                       
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-                
-
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Alternative Phone"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                      
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Relationship"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                     
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
 
 
 
-                <View style={{margin:20, alignItems: 'center', justifyContent: 'center' }}>
-                {this.state.errorMessage && <Text style={{color:"#FFFFFF", fontSize: 20}}>{this.state.errorMessage}</Text>}
-                </View>
+                <View style={{flexDirection:'row', alignSelf : 'flex-start', justifyContent: 'center'}}>
 
+                    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress = {()=>this.props.navigation.goBack()}>
 
-                <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('BanckDetails', { userMail: this.state.email, userPassword: this.state.password  })}>
-                        <Image
-                            style={{width:270, height: 40}}
-                            source={require('../../assets/SignInBotton.png')}
-                        />
+                    <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:18}}> {"<"} Back </Text> 
                     </TouchableOpacity>
+                    <View><Text> {"                       "} {"                       "}</Text></View>
+
+                    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('BanckDetails', { userMail: this.state.email, userPassword: this.state.password,CellPhone: this.state.CellPhone   })}>
+
+                    <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:18}}>          Next {">"}</Text> 
+                    </TouchableOpacity>   
                 </View>
-                <View><Text> </Text></View>
 
             
                 </ScrollView>
+
+
+ 
+
+</View>
+
+
+
+
+</View>    
+
+</View>
+
+
             </View>
+
+
+
+
+            </Content>
+  </Container>
         );
     }
 }

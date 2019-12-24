@@ -8,21 +8,83 @@ export default class SettingMyLife extends React.Component{
     render(){
     return(
         <Container style={styles.container}>
-            <Header style={styles.container}>
-                
-                <Left  style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-                    <Icon style={{color: "#FFFFFF"}} name= "ios-menu" onPress={()=>this.props.navigation.openDrawer()} />
-                    <Body>
-                    
-                    
-                    </Body>
+        <View style={{}}>
 
-                </Left>
 
-                <Right/>
-                
-                
-            </Header>
+      <Header style={{ flexDirection:'column',alignContent:'flex-start', marginVertical:15, backgroundColor:"#212533",}}>
+          
+
+          <View>
+            <Text> </Text>
+          </View>
+          <View style={{flexDirection:'row', }}>
+                    
+                            <TouchableOpacity style={{}} onPress={()=>this.props.navigation.openDrawer()}>
+
+                                <Image style={{width:30, height: 30}} source={require('./../../assets/drawer.png')} />
+
+                            </TouchableOpacity>
+                            <Text style={{fontSize:18, color: 'white', fontWeight:'200' }}> Settings </Text> 
+
+         </View>
+           
+
+            <Right/>     
+
+      
+
+
+
+  </Header>
+  </View>
+
+      <Content>
+
+        <View style={{alignItems:'flex-start', marginLeft: 15}}>
+          <View style={{alignContent:'flex-start', marginVertical:15}}>
+
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ProductScreen')}>
+            <View style={{ marginVertical:15}}>
+              <Text style={{fontSize:15, color:'white'}}> Edit profile</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ProductScreen')}>
+            <View style={{ marginVertical:15}}>
+              <Text style={{fontSize:15, color:'white'}}> Terms and conditions</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ProductScreen')}>
+            <View style={{ marginVertical:15}}>
+              <Text style={{fontSize:15, color:'white'}}> Allow</Text>
+            </View>
+          </TouchableOpacity>
+
+
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ProductScreen')}>
+            <View style={{ marginVertical:15}}>
+              <Text style={{fontSize:15, color:'white'}}> Phone directory</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ProductScreen')}>
+            <View style={{ marginVertical:15}}>
+              <Text style={{fontSize:15, color:'white'}}> Privacy policy</Text>
+            </View>
+          </TouchableOpacity>
+
+
+        </View>
+
+        </View>
+
+       
+
+
+  
+
+
+      </Content>
         </Container>
 
         

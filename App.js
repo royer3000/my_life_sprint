@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Image, TouchableOpacity} from "react-native";
+import {Button, Image, TouchableOpacity,View,Text} from "react-native";
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator,createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator} from 'react-navigation-stack';
@@ -23,41 +23,208 @@ import LoadingScreen from './screens/LoadingScreen';
 import SideBar from './components/SideBar.js'
 import { Dimensions } from 'react-native';
 import FuneralCoverScreen from './screens/ProductComponets/FuneralCoverOptions/FuneralCoverScreen.js';
-import FuneralCoverFamily from './screens/ProductComponets/FuneralCoverOptions/FuneralCoverFamily.js';
+import FuneralCoverForm from './screens/ProductComponets/FuneralCoverOptions/FuneralCoverForm.js';
 import LegalCoverScreen from './screens/ProductComponets/LegalCoverOptions/LegalCoverScreen.js';
 import RewardScreen from './screens/ProductComponets/RewardOptions/RewardScreen.js';
 import SavingPlanScreen from './screens/ProductComponets/SavingPlanOptions/SavingPlanScreen.js';
+import DebitOrderFrom from './screens/ProductComponets/LegalCoverOptions/DebitOrderFrom.js';
+import MyLifeForm from './screens/ProductComponets/LegalCoverOptions/MyLifeForm.js';
 
 
 
-const FuneralTabs = createMaterialTopTabNavigator({
+
+
+const FuneralOrderFromNavigator = createStackNavigator({
+    LegalCoverScreen: {
+        screen: LegalCoverScreen,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Quote Results</Text></View></View></TouchableOpacity>,
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+              
+          
+        }),
+      },
+
+      ClientelleForm: {
+        screen: MyLifeForm,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Clientelle Form</Text></View></View></TouchableOpacity>,
+            
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+          
+        }),
+      }, 
+
+
+      LibertyForm: {
+        screen: MyLifeForm,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Liberty Form</Text></View></View></TouchableOpacity>,
+            
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+          
+        }),
+      },  
+
+      MyLifeForm: {
+        screen: MyLifeForm,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> My Life Form</Text></View></View></TouchableOpacity>,
+            
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+          
+        }),
+      },  
+
+    DebitOrderFrom: {
+        screen: DebitOrderFrom,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Debit Order Form</Text></View></View></TouchableOpacity>,
+            
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+          
+        }),
+      },
+
+
+
+});
+
+const FuneralStackScreen = createStackNavigator({
+
     FuneralCoverScreen: {
-      screen: FuneralCoverScreen,
+        screen: FuneralCoverScreen,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Funeral Cover</Text></View></View></TouchableOpacity>,
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+              
+          
+        }),
+      },
+
+      FuneralOrderFromNavigator: {
+        screen: FuneralOrderFromNavigator,
+        navigationOptions: ({navigation}) => ({
+            header:null
+              
+          
+        }),
+      },
+
+});
+
+const LegalStackScreen = createStackNavigator({
+
+
+      LegalCoverScreen: {
+        screen: FuneralCoverScreen,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Legal Cover</Text></View></View></TouchableOpacity>,
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+              
+          
+        }),
+      },
+
+
+});
+
+const RewardStackScreen = createStackNavigator({
+
+    FuneralCoverScreen: {
+        screen: FuneralCoverScreen,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}>Reward Cover</Text></View></View></TouchableOpacity>,
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+              
+          
+        }),
+      },
+
+      
+
+});
+
+const SavinStackScreen = createStackNavigator({
+
+    FuneralCoverScreen: {
+        screen: FuneralCoverScreen,
+        navigationOptions: ({navigation}) => ({
+
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Saving Cover</Text></View></View></TouchableOpacity>,
+            headerStyle: {
+                backgroundColor: "#1D212D",
+              },
+              
+          
+        }),
+      },
+
+});
+
+
+const FuneralTabs = createBottomTabNavigator({
+    FuneralCoverScreen: {
+      screen: FuneralStackScreen,
       navigationOptions: {
-        tabBarLabel: 'Single',
+        tabBarLabel: '',
+        tabBarVisible: false
+        
       },
     },
-    profile: {
-        screen: FuneralCoverFamily,
-        navigationOptions: {
-            tabBarLabel: 'Family',
-          },
-      },
 
   },{
     tabBarOptions : {
       style: {
         backgroundColor: '#1D212D',
+        gesturesEnabled: false,
+        borderTopWidth: 0
       }
     }
   
   });
 
-  const LegalTabs = createBottomTabNavigator({
-    LegalCoverScreen: {
-      screen: LegalCoverScreen,
+  const LegalTabs = createBottomTabNavigator ({
+    LegalStackScreen: {
+      screen: LegalStackScreen,
       navigationOptions: {
-        tabBarLabel: 'Legal Cover',
+        tabBarLabel: ' ',
+        tabBarVisible: false
+        
+        
       },
     },
     
@@ -65,43 +232,69 @@ const FuneralTabs = createMaterialTopTabNavigator({
     tabBarOptions:{
         style:{
             backgroundColor:'#1D212D',
+            gesturesEnabled: false,
+            borderTopWidth: 0
+            
         }
     }
 });
 
   const RewardTabs = createBottomTabNavigator({
-    RewardScreen: {
-      screen: RewardScreen,
+    RewardStackScreen: {
+      screen: RewardStackScreen,
       navigationOptions: {
-        tabBarLabel: 'RewardScreen',
+        tabBarLabel: ' ',
+        tabBarVisible: false
+        
+        
       },
     },
     
+  },{
+    tabBarOptions:{
+        style:{
+            backgroundColor:'#1D212D',
+            gesturesEnabled: false,
+            borderTopWidth: 0
+            
+        }
+    }
+});
 
-  });
-  const SavingTabs = createBottomTabNavigator({
-    SavingPlanScreen: {
-      screen: SavingPlanScreen,
+const SavingTabs = createBottomTabNavigator({
+    SavinStackScreen: {
+      screen: SavinStackScreen,
       navigationOptions: {
-        tabBarLabel: 'SavingPlanScreen',
+        tabBarLabel: ' ',
+        tabBarVisible: false
+        
+        
       },
     },
     
-
-  });
+  },{
+    tabBarOptions:{
+        style:{
+            backgroundColor:'#1D212D',
+            gesturesEnabled: false,
+            borderTopWidth: 0
+            
+        }
+    }
+});
 
 
 const ProductStackNavigator = createStackNavigator({
 
     ProductScreen:{
-        screen: ProductScreen,
+        screen:  ProductScreen,
         navigationOptions:({navigation}) => ({
-            
-            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><Image style={{width:40, height: 40}} source={require('./assets/drawer.png')} /></TouchableOpacity>,
+            headerTintColor: '#fff',
+            headerLeft: <TouchableOpacity  onPress={() => navigation.openDrawer()}><View style={{paddingHorizontal:11, flexDirection:'row'}}><Image style={{width:30, height: 30}} source={require('./assets/drawer.png')} /><View><Text style={{fontSize:18, color: 'white'}}> Products</Text></View></View></TouchableOpacity>,
             headerStyle: {
                 backgroundColor: "#1D212D",
               },
-              title:"Product",
+              
               
         }) 
     },
@@ -109,71 +302,44 @@ const ProductStackNavigator = createStackNavigator({
     FuneralCoverScreen:{
         screen: FuneralTabs,
         navigationOptions:{
-            title:"Funeral Cover",
-            headerStyle: {
-                backgroundColor: "#1D212D",
-                
-            
-              },
-              
-            
+            header:null,
         }
     },
     LegalCoverScreen:{
         screen: LegalTabs,
         navigationOptions:{
-            title:"Legal Cover",
-            headerStyle: {
-                backgroundColor: "#1D212D",
-              },
-            
+            header:null,
         }
     },
     RewardScreen:{
         screen: RewardTabs,
         navigationOptions:{
-            title:"Reward",
-            headerStyle: {
-                backgroundColor: "#1D212D",
-              },
-            
+            header:null,
         }
     },
     SavingPlanScreen:{
         screen: SavingTabs,
         navigationOptions:{
-            title:"Saving Plan",
-            headerStyle: {
-                backgroundColor: "#1D212D",
-              },
-            
+            header:null,
         }
     },
-
 
 
 });
 
 
 const ProductDrawerNavigator = createDrawerNavigator({
-    ProductStackNavigator: {
+    WorkInProgress: {
         screen: ProductStackNavigator,
         navigationOptions:{
-            title:"Home",
-        }
-    },
-
-    WorkInProgress: {
-        screen: WorkInProgress,
-        navigationOptions:{
-            title:"Wor in Progress",
+            title:"Work in Progress",
         }
     },
 
     PotencialEarning: {
         screen: PotencialEarning,
         navigationOptions:{
-            title:"Potencial Earning",
+            title:"Potential Earnings",
         }
     },
     SalesRecord: {
@@ -191,7 +357,7 @@ const ProductDrawerNavigator = createDrawerNavigator({
     LeaderBoard: {
         screen: LeaderBoard,
         navigationOptions:{
-            title:"Leader Board",
+            title:"Leaderboard",
         }
     },
     SettingMyLife: {
@@ -210,7 +376,7 @@ const ProductDrawerNavigator = createDrawerNavigator({
 },{
     contentComponent: props => <SideBar {...props} />,
 
-    drawerWidth: Dimensions.get('window').width * 0.85,
+    drawerWidth: Dimensions.get('window').width * 0.75,
     hideStatusBar:true,
 
     contentOptions: {
@@ -219,15 +385,17 @@ const ProductDrawerNavigator = createDrawerNavigator({
         activeTintColor:"#FFFFFF",
         inactiveTintColor: "#FFFFFF",
         labelStyle:{ 
-            marginLeft:5,
+
+
             fontWeight: "100",
-            fontSize: 20,
+            fontSize: 18,
+
+            backgroundColor: null
             
         },
         itemStyle: { 
             
-            borderBottomWidth: 0.5,       
-            borderBottomColor: "#7fffd4" 
+
         }
     },
 
@@ -257,44 +425,62 @@ const AuthStack = createStackNavigator({
     Register:{
         screen: SignUpScreen,
         navigationOptions:{
-            headerStyle: {
-                backgroundColor: "#1D212D",
-              },
+            header:null,
+
         }
     },
     PersonaleInformation:{
         screen: PersonaleInformation,
-        navigationOptions:{
+        navigationOptions:({navigation}) => ({
+            headerTintColor: '#fff',
+            headerLeft: <View style={{paddingHorizontal:25}}><Text style={{fontSize:18, color: 'white'}}> Sales agent registration </Text></View>,
             headerStyle: {
                 backgroundColor: "#1D212D",
+                
               },
-        }
+
+              
+        }) 
     },
     PreviousJobInformation:{
         screen: PreviousJobInformation,
-        navigationOptions:{
+        navigationOptions:({navigation}) => ({
+            headerTintColor: '#fff',
+            headerLeft: <View style={{paddingHorizontal:25}}><Text style={{fontSize:18, color: 'white'}}>Sales agent registration </Text></View>,
             headerStyle: {
                 backgroundColor: "#1D212D",
+                
               },
-        }
+
+              
+        }) 
     },
     EmergencyContactInformation:{
         screen: EmergencyContactInformation,
-        navigationOptions:{
+        navigationOptions:({navigation}) => ({
+            headerTintColor: '#fff',
+            headerLeft: <View style={{paddingHorizontal:25}}><Text style={{fontSize:18, color: 'white'}}>Sales agent registration </Text></View>,
             headerStyle: {
                 backgroundColor: "#1D212D",
+                
               },
-        }
+
+              
+        }) 
     },
     BanckDetails:{
         screen: BanckDetails,
-        navigationOptions:{
+        navigationOptions:({navigation}) => ({
+            headerTintColor: '#fff',
+            headerLeft: <View style={{paddingHorizontal:25}}><Text style={{fontSize:18, color: 'white'}}>Sales agent registration </Text></View>,
             headerStyle: {
                 backgroundColor: "#1D212D",
+                
               },
-        }
-    },
 
+              
+        }) 
+    },
 })
 
 

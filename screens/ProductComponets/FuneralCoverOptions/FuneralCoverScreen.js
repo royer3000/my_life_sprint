@@ -1,335 +1,209 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Button, Icon, Left, Body, Right } from 'native-base';
-import {View, StyleSheet, Text,TextInput,TouchableOpacity, ScrollView} from "react-native";
+import {View, StyleSheet, Text,TextInput,TouchableOpacity, ScrollView, Picker} from "react-native";
+import * as firebase from 'firebase';
 
 export default class FuneralCoverScreen extends Component {
+ 
+  state = {
+
+    email: "",
+    displayName: "",
+    
+};
+constructor(props) {
+    super(props);
+    this.state = { 
+      
+      signature: null,
+    PickerValue:''
+  
+  };
+  }
+
+
+componentDidMount(){
+    const {email, displayName} = firebase.auth().currentUser;
+
+    this.setState({email, displayName});
+}
+
+signOutUser = () => {
+    firebase.auth().signOut();
+};
   render() {
     return (
-      <Container>
-
-        <Content style={styles.container}>
-
-        <ScrollView scrollEventThrottle={16}>
-          <View>
-            <View>
-              <Text style={{fontSize:24, fontWeight:'700',paddingHorizontal:20, color:'white'}}>
-                Here,{"\n"}can we help you find?
-              </Text>
-            </View>
-
-            <View>
-              <Text style={{fontSize:20, fontWeight:'400',paddingHorizontal:20, color:'white', margin: 10}}>
-                Singles Pack
-              </Text>
-            </View>
             
-            <View>
-              <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/funeraIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>18 - 65 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/funeraIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                              <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text style={{color:'white'}}></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
+            
+      <Container style={styles.container}>
+      <Content>
+
+          <View style={{alignItems:'center'}}>
+
+              
+                      <View style={{paddingTop:5 }} >
+                          
+                          <View style={{width: 340, height: 600, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:0,borderBottomRightRadius:0, paddingTop:1,}}>
+                              <View style={{alignItems:'flex-start', paddingHorizontal:5}}>
+                                  <ScrollView showsVerticalScrollIndicator={false} scrollEventThrottle={1}>
+                                      <View >
+                                          <Text style={{color:'white', fontSize:13}}> Name</Text>
+                                      </View>
+
+                                      <View style={{paddingVertical:5}}>
+                                          <TextInput
+                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
+                                              placeholder ="Name"
+                                              returnKeyType ="next"
+                                              onChangeText={(text) => this.setState({text})}
+                                              value = {this.state.text}
+                                              keyboardType = "email-address"
+                                              autoCapitalize ="none"
+                                              autoCorrect = {false}             
+                                              placeholderTextColor = "#FFFFFF"
+                                          />
+                                      </View>
+
+                                      <View >
+                                          <Text style={{color:'white', fontSize:13}}> Bank</Text>
+                                      </View>
+
+                                      <View style={{paddingVertical:5}}>
+                                          <TextInput
+                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
+                                              placeholder ="Surname"
+                                              returnKeyType ="next"
+                                              onChangeText={(Surname) => this.setState({Surname})}
+                                              value = {this.state.Surname}
+                                              keyboardType = "email-address"
+                                              autoCapitalize ="none"
+                                              autoCorrect = {false}             
+                                              placeholderTextColor = "#FFFFFF"
+                                          />
+                                      </View>
+
+                                      <View >
+                                          <Text style={{color:'white', fontSize:13}}> ID</Text>
+                                      </View>
+
+                                      <View style={{paddingVertical:5}}>
+                                          <TextInput
+                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
+                                              placeholder ="00000"
+                                              returnKeyType ="next"
+                                              onChangeText={(ID) => this.setState({ID})}
+                                              value = {this.state.ID}
+                                              keyboardType = "email-address"
+                                              autoCapitalize ="none"
+                                              autoCorrect = {false}             
+                                              placeholderTextColor = "#FFFFFF"
+                                          />
+                                      </View>
+
+                                      <View >
+                                          <Text style={{color:'white', fontSize:13}}> E-mail</Text>
+                                      </View>
+
+                                      <View style={{paddingVertical:5}}>
+                                          <TextInput
+                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
+                                              placeholder ="E-mail"
+                                              returnKeyType ="next"
+                                              onChangeText={(email) => this.setState({email})}
+                                              value = {this.state.email}
+                                              keyboardType = "email-address"
+                                              autoCapitalize ="none"
+                                              autoCorrect = {false}             
+                                              placeholderTextColor = "#FFFFFF"
+                                          />
+                                      </View>
+
+                                      <View style={{paddingVertical:5, paddingBottom:10}}>
+                                          <Text style={{color:'white', fontSize:13}}> Marital Status</Text>
+                                      </View>
+
+                                      <View style={{ borderWidth:1, borderColor:'black', backgroundColor:'white' }}>
+                                          <Picker style={{width:'100%', height:34, color:'black', fontSize:13  }} selectedValue={this.state.PickerValue}
+                                          onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
+                                            <Picker.Item label ='Single' value='single'/>
+                                            <Picker.Item label ='Married' value='married'/>
+                                          </Picker>
+                                      </View>
+
+                                      <View style={{paddingVertical:5, paddingTop:10}}>
+                                          <Text style={{color:'white', fontSize:13}}> No. of Dependants</Text>
+                                      </View>
+
+                                      <View style={{paddingVertical:5}}>
+                                          <TextInput
+                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
+                                              placeholder ="00"
+                                              returnKeyType ="next"
+                                              onChangeText={(Dependants) => this.setState({Dependants})}
+                                              value = {this.state.Dependants}
+                                              keyboardType = "email-address"
+                                              autoCapitalize ="none"
+                                              autoCorrect = {false}             
+                                              placeholderTextColor = "#FFFFFF"
+                                          />
+                                      </View>
+
+                                      
+
+                                        
 
 
-                <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/legalCoverIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>66 - 75 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/legalCoverIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All</Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text style={{color:'white'}}></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
 
 
-                <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/rewardIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>76 - 85 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/rewardIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                           <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text style={{color:'white'}}></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
+                                  </ScrollView>
+                                  </View>
+
+                                  <View style={{ width:340, height: 45, borderColor: "#ACACAC",backgroundColor: "#1a1d2a", paddingLeft:-5, paddingRight:-15 , paddingBottom:5}}>
+                                  <View><Text> </Text></View>
+                                            
+                                  <Text style={{paddingHorizontal:13, color:'white', fontSize:13 }} >R</Text>
+                                  
+                                        
+                                  </View>
+                                  <View style={{}}><Text> </Text></View>
+
+                                  <View style={{ width:340, height: 45, borderColor: "#ACACAC",backgroundColor: "#1a1d2a", paddingLeft:0, paddingRight:0 ,paddingVertical:0 }}>
+
+                                  <View><Text> </Text></View>
+                                            
+                                    <Text style={{paddingHorizontal:13, color:'white', fontSize:13}} >R</Text>
+                                    <View><Text> </Text></View>  
+                                        
+                                  </View>
+                              
+                                  <View style={{}}><Text> </Text></View>
+                                  
+                              <View style={{alignItems: 'center', justifyContent: 'center', paddingVertical:0}}>
+                                  <TouchableOpacity onPress={()=>this.props.navigation.navigate('FuneralOrderFromNavigator')}>
+                                      <Image
+                                          style={{width:270, height: 41}}
+                                          source={require('../../../assets/sumitbottton.png')}
+                                      />
+                                  </TouchableOpacity>
+                              </View>
+                              
 
 
-                <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/savingPlanIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>86 - 100 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/savingPlanIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                          <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
+
+
+                          </View>    
+                          
+                      </View>
               
 
-              </ScrollView>
 
-            </View>
-            
           </View>
 
-
-          <View>
-              <Text style={{fontSize:20, fontWeight:'400',paddingHorizontal:20, color:'white', margin:10}}>
-                With children Pack
-              </Text>
-            </View>
-
-            <View>
-              <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/funeraIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>18 - 65 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/funeraIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                          <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text style={{color:'white'}}></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
-
-
-                <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/legalCoverIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>66 - 75 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/legalCoverIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                          <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text style={{color:'white'}}></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
-
-
-                <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/rewardIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>76 - 85 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/rewardIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                          <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text style={{color:'white'}}></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
-
-
-                <View>
-                  <Card >
-                        <CardItem  style={styles.container} >
-                          <Left>
-                            <Thumbnail source={require('../../../assets/savingPlanIcon.png')} />
-                            <Body>
-                              <Text style={{color:'white'}}>My Life Cover Premium</Text>
-                              <Text style={{color:'white'}} note>86 - 100 years</Text>
-                            </Body>
-                          </Left>
-                        </CardItem>
-                        <CardItem cardBody>
-                          <Image source={require('../../../assets/savingPlanIcon.png')} style={{height: 130, width: 50, flex: 1}}/>
-                        </CardItem>
-                        <CardItem  style={styles.container} >
-                          <Left>
-                          <Button transparent>
-                            <Image source={require('../../../assets/ourrates.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white', fontSize:10}}> Prices</Text>
-                            </Button>
-                          </Left>
-                          <Body>
-                            <Button transparent>
-                            <Image source={require('../../../assets/category.png')} style={{height: 15, width: 100, flex: 1}} />
-                              <Text style={{color:'white'}}> All </Text>
-                            </Button>
-                          </Body>
-                          <Right>
-                            <Text></Text>
-                          </Right>
-                        </CardItem>
-                  </Card>
-                </View>
-              
-
-              </ScrollView>
-
-            </View>
-          
-        </ScrollView>
-          
-          
-        </Content>
-      </Container>
+                                      
+                                  
+  </Content>
+  </Container>
     );
   }
 }

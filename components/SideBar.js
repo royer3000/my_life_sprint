@@ -5,29 +5,52 @@ import { Ionicons } from "@expo/vector-icons";
 
 
 export default Sidebar = props => (
+
+
+    <View style = { styles.container } >
+    <ScrollView showsVerticalScrollIndicator={false} scrollEventThrottle={1}>
+
+    <Image  style= { {width: '100%',
+        height: 200,}} source={require('../assets/Drawer1.png')} />
+
     
-    <View style={styles.container}>
-        
-        
-            <Image style={{width:300, height:230,marginEnd:-5}}source={require('../assets/MenuIma.png')}
-            /> 
-        <ScrollView>
-        <View >
-        
-        </View>
-        <DrawerNavigatorItems {...props}/>
-        
-        </ScrollView>
+
+
+
+    <ImageBackground  style= { styles.backgroundImage } source={require('../assets/Drawer2.png')} >
+
+            <View styles={{}}>
+
+                <DrawerNavigatorItems {...props}/>
+
+
+
+            </View>
+            <View><Text> </Text></View>
+            <View><Text> </Text></View>
+            <View><Text> </Text></View>
+            <View><Text> </Text></View>
+            <View><Text> </Text></View>
+            <View><Text> </Text></View>
+
+    </ImageBackground>
+                
+
+           
+
+ 
+      
+      </ScrollView>
     </View>
+    
+
     
 );
 
 const styles = StyleSheet.create({
 
     container: {
-        flex:1,
-        marginTop: 0,
-
+        flex:1,      
         backgroundColor: '#212533'
         
 
@@ -37,7 +60,14 @@ const styles = StyleSheet.create({
         borderBottomColor:'#1D212D',
 
         backgroundColor: '#1D212D'
-    }
+    },
+    backgroundImage:{
+        flex: 1,
+        width: '100%',
+        height: '100%',
+
+
+    },
 
 
 })

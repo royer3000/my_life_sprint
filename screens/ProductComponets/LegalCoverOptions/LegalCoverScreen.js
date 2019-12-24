@@ -1,77 +1,156 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity} from "react-native";
+import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity,ImageBackground,ScrollView} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
-
+import * as firebase from 'firebase';
 
 export default class LegalCoverScreen extends React.Component{ 
-    render(){
-    return(
-      <Container style={styles.container}>
-      <Content>
 
-      <View style={styles.container}>
-      
+  state = {
 
-          <View style={styles.viewP} >
-              <View style={styles.view1} >
-                  <View >
-                      <TouchableOpacity style={{flexDirection: 'row'}} onPress={()=>this.props.navigation.navigate('LegalCoverScreen')}>
-                            <View><Text> </Text></View>
-                          <Text style={{color:"#7cfc00", fontSize:24}}> Clientelle</Text>
-                          <View><Text>  </Text></View> 
-                          <Image style={{width:60, height:60}}
-                          source={require('../../../assets/fun1.png')}
-                          />
+    email: "",
+    displayName: "",
+    
+};
 
-                      </TouchableOpacity>    
-                  </View>                                
+
+componentDidMount(){
+    const {email, displayName} = firebase.auth().currentUser;
+
+    this.setState({email, displayName});
+}
+
+signOutUser = () => {
+    firebase.auth().signOut();
+};
+    render() {
+      return(
+          
+          
+          <Container style={styles.container}>
+
+          <Content>
+
+
+
+          <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={styles.container}>
+              <View><Text> </Text></View>
+                  <View style={{alignItems:'center'}}>
+                      <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('ClientelleForm')}>
+                          <View >
+                              <View style={{width: 345, height: 100,backgroundColor:'#5fed85', marginVertical:12,borderTopRightRadius:10,borderBottomRightRadius:10}}>
+                              <View style={{width: 340, height: 100, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:10,borderBottomRightRadius:10}}>
+                                  <View style={{alignItems:'center'}}>
+                                      <Text> </Text>
+                                  </View>
+
+                                    <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+
+                                        <View style={{alignItems:'center'}}>
+
+                                            <View style={{alignItems:'center'}}>
+                                                <Text style={{fontSize:20,color:'#ffffff'}}>Clientelle </Text>
+                                            </View>
+                                            <View style={{alignItems:'flex-start'}}>
+                                                <Text style={{fontSize:14,color:'white'}}>      R200/pm R30000</Text>
+                                            </View>
+
+                                        </View>
+                                        <View style={{paddingStart:120,}}>
+                                          <Image style={{width:65, height:65,borderTopRightRadius:10,borderBottomRightRadius:10,borderBottomLeftRadius:10,borderTopLeftRadius:10}}
+                                            source={require('../../../assets/fun1.png')}
+                                            />
+                                          </View>
+                                    </View>
+
+                              </View>    
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('LibertyForm')}>
+                          <View >
+                              <View style={{width: 345, height: 100,backgroundColor:'#ff59d2', marginVertical:12,borderTopRightRadius:10,borderBottomRightRadius:10}}>
+                              <View style={{width: 340, height: 100, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:10,borderBottomRightRadius:10}}>
+                                  <View style={{alignItems:'center'}}>
+                                      <Text> </Text>
+                                  </View>
+
+                                    <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+
+                                        <View style={{alignItems:'center', marginLeft:-9}}>
+
+                                            <View style={{alignItems:'center'}}>
+                                                <Text style={{fontSize:20,color:'#ffffff'}}>Liberty   </Text>
+                                            </View>
+                                            <View style={{alignItems:'flex-start'}}>
+                                                <Text style={{fontSize:14,color:'white'}}>         R200/pm R30000</Text>
+                                            </View>
+
+                                        </View>
+                                        <View style={{paddingStart:120,}}>
+                                          <Image style={{width:65, height:65,borderTopRightRadius:10,borderBottomRightRadius:10,borderBottomLeftRadius:10,borderTopLeftRadius:10}}
+                                            source={require('../../../assets/fun1.png')}
+                                            />
+                                          </View>
+                                    </View>
+
+                              </View>    
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('MyLifeForm')}>
+                          <View >
+                              <View style={{width: 345, height: 100,backgroundColor:'#fbeb86', marginVertical:12,borderTopRightRadius:10,borderBottomRightRadius:10}}>
+                              <View style={{width: 340, height: 100, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:10,borderBottomRightRadius:10}}>
+                                  <View style={{alignItems:'center'}}>
+                                      <Text> </Text>
+                                  </View>
+
+                                    <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+
+                                        <View style={{alignItems:'center',marginLeft:-9}}>
+
+                                            <View style={{alignItems:'center'}}>
+                                                <Text style={{fontSize:20,color:'#ffffff'}}>My Life </Text>
+                                            </View>
+                                            <View style={{alignItems:'flex-start'}}>
+                                                <Text style={{fontSize:14,color:'white'}}>         R200/pm R30000</Text>
+                                            </View>
+
+                                        </View>
+                                        <View style={{paddingStart:120,}}>
+                                          <Image style={{width:65, height:65,borderTopRightRadius:10,borderBottomRightRadius:10,borderBottomLeftRadius:10,borderTopLeftRadius:10}}
+                                            source={require('../../../assets/fun3.png')}
+                                            />
+                                          </View>
+                                    </View>
+
+                              </View>    
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+                    </View>
+
+
+              
+
+
+
               </View>
-          </View>
-
-          <View style={styles.viewP} >
-              <View style={styles.view2} >
-                  <View >
-                      <TouchableOpacity style={{flexDirection: 'row'}} onPress={()=>this.props.navigation.navigate('RewardScreen')}>
-                          <View><Text> </Text></View>
-                          <Text style={{color:"#ff69b4", fontSize:24}}> Liberty</Text>
-                          <View><Text> </Text></View>
-                          <Image style={{width:60, height:60}}
-                          source={require('../../../assets/fun1.png')}
-                          />
-
-                      </TouchableOpacity>    
-                  </View>                           
-              </View>
-          </View>
-
-          <View style={styles.viewP} >
-              <View style={styles.view3} >
-                  <View >
-                      <TouchableOpacity style={{flexDirection: 'row'}} onPress={()=>this.props.navigation.navigate('RewardScreen')}>
-                            <View><Text style={{color:"#ff69b4", fontSize:24}}> My Life</Text></View>
-                          
-                            <View><Image style={{width:60, height:60, }}
-                            source={require('../../../assets/fun3.png')}
-                            /></View>
-  
-
-                      </TouchableOpacity>    
-                  </View>                           
-              </View>
-          </View>
+                  
+          <View><Text> </Text></View>
+          </ScrollView>
+              </Content>
+          
 
           
-          </View>
-          <View><Text> </Text></View>
-
-          </Content>
-
-    
-   
-    </Container>
         
+       
+        </Container>
 
-        );
+      );
     } 
 }
 
@@ -82,6 +161,14 @@ const styles = StyleSheet.create({
     borderBottomColor:"#212533",
 
     backgroundColor: "#212533"
+    
+
+},
+containerDos: {
+    flexWrap:'wrap',
+    borderBottomColor:"#1D212D",
+
+    backgroundColor: "#1D212D"
     
 
 },

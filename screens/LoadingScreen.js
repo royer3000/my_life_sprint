@@ -13,7 +13,7 @@ export default class LoadingScreen extends React.Component {
     render(){
         return(
             <View style={styles.container}>
-                <Text>Loading...</Text>
+                <Text style={{ color:'white', fontSize:15}}>Loading...</Text>
                 <ActivityIndicator size="large"></ActivityIndicator>
             </View>
         );

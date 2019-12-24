@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView} from "react-native";
+import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView, Picker} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
 import * as firebase from 'firebase';
 
@@ -9,6 +9,7 @@ class BanckDetails extends React.Component {
         name:"",
         email: this.props.navigation.getParam('userMail'),
         password: this.props.navigation.getParam('userPassword'),
+        CellPhone: this.props.navigation.getParam('UserCellPhone'),
         errorMessage: null
        
     };
@@ -27,176 +28,158 @@ class BanckDetails extends React.Component {
 
     render(){
         return(
-
-            
-            <View style={styles.container}>
-                <ScrollView >
+            <Container style={styles.container}>
 
 
-                <View><Text  style={{fontSize:30, color:'white'}}> Bank Details</Text></View>
+            <Content>
+            <View style={{alignItems:'center'}}>
+            <View style={{paddingTop:5 }} >
+    
+            <View style={{width: 355, height: 700, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:0,borderBottomRightRadius:0, paddingTop:1,}}>
+                <View style={{alignItems:'center', paddingHorizontal:5}}>
+                    <ScrollView showsVerticalScrollIndicator={false} >
+
+                        <View><Text style={{fontSize:20, color:'white',fontWeight:'200',paddingHorizontal:5,paddingVertical:5}}> Previous Job Information {"(1/1)"} </Text></View>
+
+
+                <View  style={{paddingVertical:5}} >
+                        
+                    <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Title</Text>
+                        
+                </View>                   
+
+                
+                
+                <View style={{ borderWidth:1, borderColor:'black', backgroundColor:'white' }}>
+                                          <Picker style={{width:'100%', height:35, color:'black', fontSize:13  }} selectedValue={this.state.PickerValue}
+                                          onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
+                                            <Picker.Item label ='Mr.' value='Mr'/>
+                                            <Picker.Item label ='Mrs.' value='Mrs'/>
+                                            <Picker.Item label ='Ms.' value='Ms'/>
+                                            <Picker.Item label ='Miss' value='Miss'/>
+                                          </Picker>
+                </View>
+
+                <View  style={{paddingVertical:5}} >
+                        
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Work Location</Text>
+                            
+                    </View>                   
+    
+                    
+                    
+                    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                
+                        <TextInput
+                            style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                            placeholder ="Durban, SA"
+                            returnKeyType ="next"
+                            onChangeText = {WorkLocation => this.setState({WorkLocation})}
+                            value = {this.state.WorkLocation}
+                            keyboardType = "email-address"
+                            autoCapitalize ="none"
+                            autoCorrect = {false} 
+                        
+                            placeholderTextColor = "#FFFFFF"
+                        />
+    
+                    </View>
+
+                    <View  style={{paddingVertical:5}} >
+                        
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Work Phone</Text>
+                            
+                    </View>                   
+    
+                    
+                    
+                    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                
+                        <TextInput
+                            style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                            placeholder ="00000"
+                            returnKeyType ="next"
+                            onChangeText = {WorkPhone => this.setState({WorkPhone})}
+                            value = {this.state.WorkPhone}
+                            keyboardType = "email-address"
+                            autoCapitalize ="none"
+                            autoCorrect = {false} 
+                        
+                            placeholderTextColor = "#FFFFFF"
+                        />
+    
+                    </View>
+
+                    <View style={{paddingVertical:5}}>
+                                          <Text style={{color:'white', fontSize:13}}> Start Date*</Text>
+                    </View>
+
+                    <View style={{ borderWidth:1, borderColor:'black', backgroundColor:'white' }}>
+                                          <Picker style={{width:'100%', height:35, color:'black', fontSize:13  }} selectedValue={this.state.PickerValue}
+                                          onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
+                                            <Picker.Item label ='mm/dd/yy' value='Lorem'/>
+
+                                          </Picker>
+                    </View>
+
+                    <View style={{paddingVertical:5}}>
+                                          <Text style={{color:'white', fontSize:13}}> Position Applying For*</Text>
+                    </View>
+
+                    <View style={{ borderWidth:1, borderColor:'black', backgroundColor:'white' }}>
+                                          <Picker style={{width:'100%', height:35, color:'black', fontSize:13  }} selectedValue={this.state.PickerValue}
+                                          onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
+                                            <Picker.Item label ='Regional Manager' value='FemaRegional Managerle'/>
+                                            <Picker.Item label ='Province Manager' value='Province Manager'/>
+                                            <Picker.Item label ='Agent Sales' value='Agent Sales'/>
+                                          </Picker>
+                    </View>
 
                     <View><Text> </Text></View>
-                <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-                    <Image style={{width:100, height:100}}
-                    source={require('../../assets/logo2.png')}
-                    />
-                </View>
-                
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Bank Name"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                      
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
 
 
-                <View><Text> </Text></View>
-
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Account Name"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                      
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Account Number"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                      
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-                
-
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Branch Code"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                 
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor:"#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Branch Name"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                   
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor:"#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Tax Number"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                   
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Upload of Bank Statement "
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.email}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
-                <View><Text> </Text></View>
-
-
-                <View style={{margin:20, alignItems: 'center', justifyContent: 'center' }}>
-                {this.state.errorMessage && <Text style={{color:"#FFFFFF", fontSize: 20}}>{this.state.errorMessage}</Text>}
-                </View>
-
+                    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
+            </View>
 
                 <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
                     <TouchableOpacity onPress={this.handleSignUp}>
                         <Image
-                            style={{width:270, height: 40}}
+                            style={{width:270, height: 41}}
                             source={require('../../assets/SignInBotton.png')}
                         />
                     </TouchableOpacity>
                 </View>
+
                 <View><Text> </Text></View>
 
-            
                 </ScrollView>
+
+
+
+ 
+
+</View>
+
+
+
+
+</View>    
+
+</View>
+
+
             </View>
+
+
+
+
+            </Content>
+  </Container>
+
+
+
+
         );
     }
 }

@@ -9,6 +9,7 @@ class PreviousJobInformation extends React.Component {
         name:"",
         email: this.props.navigation.getParam('userMail'),
         password: this.props.navigation.getParam('userPassword'),
+        CellPhone: this.props.navigation.getParam('UserCellPhone'),
         errorMessage: null
        
     };
@@ -27,29 +28,57 @@ class PreviousJobInformation extends React.Component {
 
     render(){
         return(
+            <Container style={styles.container}>
 
-            
-            <View style={styles.container}>
-                <ScrollView >
 
-                <View><Text  style={{fontSize:30, color:'white'}}> Previous Job Information</Text></View>
+            <Content>
+            <View style={{alignItems:'center'}}>
+            <View style={{paddingTop:5 }} >
+    
+            <View style={{width: 355, height: 650, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:0,borderBottomRightRadius:0, paddingTop:1,}}>
+                <View style={{alignItems:'center', paddingHorizontal:5}}>
+                    <ScrollView showsVerticalScrollIndicator={false} >
 
-                <View><Text> </Text></View>
+                        <View><Text style={{fontSize:20, color:'white',fontWeight:'200',paddingHorizontal:5,paddingVertical:5}}> Personal Information {"(2/3)"}</Text></View>
+
+                        <View  style={{paddingVertical:5}} >
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Upload proof of address VIA</Text>
+                        </View>
+
+                        <View style={{flexDirection:'row', alignSelf : 'flex-start', justifyContent: 'center', paddingHorizontal:5,paddingVertical:5}}>
+                            <View style={{ borderWidth:1, borderColor:'white', with:50, hight:10}} >
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress = {()=>this.props.navigation.goBack()}>
+                            <View><Text> </Text></View>
+                            <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:13}}>{"   "} Upload Document {"   "}</Text> 
+                            </TouchableOpacity>
+                            </View>
+                            <View><Text> {"       "} {"       "} </Text></View>
+                            
+                            <View style={{ borderWidth:1, borderColor:'white', with:50, hight:10 }} >
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('PreviousJobInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
+                            <View><Text> </Text></View>
+                            <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:13,  }}>{"      "}  {"      "} Camera {"      "} {"      "}  </Text> 
+                            <View><Text> </Text></View>
+                            </TouchableOpacity>
+                            </View>   
+                        </View>
+
+                <View  style={{paddingVertical:5}} >
+                        
+                    <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Home Phone</Text>
+                        
+                </View>                   
+
                 
-                <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-                    <Image style={{width:100, height:100}}
-                    source={require('../../assets/logo2.png')}
-                    />
-                </View>
                 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Title"
+                        style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                        placeholder ="000 000 000"
                         returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
+                        onChangeText = {HomePhone => this.setState({HomePhone})}
+                        value = {this.state.HomePhone}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
@@ -60,17 +89,21 @@ class PreviousJobInformation extends React.Component {
                 </View>
 
 
-                <View><Text> </Text></View>
+                <View  style={{paddingVertical:5}} >
+                        
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Cell Phone*</Text>
+                            
+                </View> 
 
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
             
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Work Location"
+                        style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                        placeholder ="00"
                         returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
+                        onChangeText = {CellPhone => this.setState({CellPhone})}
+                        value = {this.state.CellPhone}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
@@ -80,37 +113,23 @@ class PreviousJobInformation extends React.Component {
 
                 </View>
 
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Work Phone"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                        
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
-                </View>
                 
 
 
-                <View><Text> </Text></View>
+                <View  style={{paddingVertical:5}} >
+                        
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> ID Number</Text>
+                            
+                </View> 
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
                     <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Start Date"
+                        style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                        placeholder ="00"
                         returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
+                        onChangeText = {idNumber => this.setState({idNumber})}
+                        value = {this.state.idNumber}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
@@ -119,45 +138,77 @@ class PreviousJobInformation extends React.Component {
                     />
 
                 </View>
+                <View  style={{paddingVertical:5}} >
+                        
+                        <Text style={{color:'white', fontSize:13,paddingHorizontal:5,}}> Upload copy of ID via:</Text>
+                            
+                </View> 
+
+                <View style={{flexDirection:'row', alignSelf : 'flex-start', justifyContent: 'center', paddingHorizontal:5,paddingVertical:5}}>
+                            <View style={{ borderWidth:1, borderColor:'white', with:50, hight:10}} >
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress = {()=>this.props.navigation.goBack()}>
+                            <View><Text> </Text></View>
+                            <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:13}}>{"   "} Upload Document {"   "}</Text> 
+                            </TouchableOpacity>
+                            </View>
+                            <View><Text> {"       "} {"       "} </Text></View>
+                            
+                            <View style={{ borderWidth:1, borderColor:'white', with:50, hight:10 }} >
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('PreviousJobInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
+                            <View><Text> </Text></View>
+                            <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:13,  }}>{"      "}  {"      "} Camera {"      "} {"      "}  </Text> 
+                            <View><Text> </Text></View>
+                            </TouchableOpacity>
+                            </View>   
+                </View>
 
                 <View><Text> </Text></View>
 
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
 
-                    <TextInput
-                        style={{ width:271, height: 40, borderColor: "#808080", borderWidth: 1,backgroundColor: "#1a1d2a",paddingHorizontal:13 }}
-                        placeholder ="Position Applying"
-                        returnKeyType ="next"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                        keyboardType = "email-address"
-                        autoCapitalize ="none"
-                        autoCorrect = {false} 
-                       
-                        placeholderTextColor = "#FFFFFF"
-                    />
-
+                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
                 </View>
 
 
-                <View style={{margin:20, alignItems: 'center', justifyContent: 'center' }}>
-                {this.state.errorMessage && <Text style={{color:"#FFFFFF", fontSize: 20}}>{this.state.errorMessage}</Text>}
-                </View>
 
+                <View style={{flexDirection:'row', alignSelf : 'flex-start', justifyContent: 'center'}}>
 
-                <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('EmergencyContactInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
-                        <Image
-                            style={{width:270, height: 40}}
-                            source={require('../../assets/SignInBotton.png')}
-                        />
+                    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress = {()=>this.props.navigation.goBack()}>
+
+                    <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:18}}> {"<"} Back </Text> 
                     </TouchableOpacity>
-                </View>
-                <View><Text> </Text></View>
+                    <View><Text> {"                       "} {"                       "}</Text></View>
 
-            
+                    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('EmergencyContactInformation', { userMail: this.state.email, userPassword: this.state.password,CellPhone: this.state.CellPhone   })}>
+
+                    <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:18}}>   Step 3/3 {">"}</Text> 
+                    </TouchableOpacity>   
+                </View>
+
+                <View><Text> </Text></View>
                 </ScrollView>
+                
+
+
+ 
+
+</View>
+
+
+
+
+</View>    
+
+</View>
+
+
             </View>
+
+
+
+
+            </Content>
+  </Container>
         );
     }
 }

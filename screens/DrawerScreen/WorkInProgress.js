@@ -9,18 +9,26 @@ export default class WorkInProgress extends React.Component{
       <Container style={styles.container}>
       <Header style={styles.container}>
           
-          <Left  style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-              <Icon style={{color: "#FFFFFF"}} name= "ios-menu" onPress={()=>this.props.navigation.openDrawer()} />
+          <Left  style={{flexDirection: 'row', justifyContent: 'flex-start',marginTop:35, marginLeft:-8}}>
+
+              <TouchableOpacity  onPress={()=>this.props.navigation.openDrawer()}><Image style={{width:30, height: 30}} source={require('./../../assets/drawer.png')} /></TouchableOpacity>
+              
               <Body>
              
-              
+
               </Body>
 
           </Left>
+          <Right />
 
 
 
       </Header>
+
+      <Content>
+
+
+      </Content>
   </Container>
         );
     } 
@@ -31,6 +39,7 @@ const styles = StyleSheet.create({
     container: {
         flexWrap:'wrap',
         borderBottomColor:"#212533",
+        marginBottom:5,
 
         backgroundColor: "#212533"
         

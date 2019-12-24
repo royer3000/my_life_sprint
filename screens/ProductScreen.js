@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView} from "react-native";
+import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView,ImageBackground} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
 import * as firebase from 'firebase';
 import Expo from 'expo';
@@ -30,78 +30,155 @@ class ProductScreen extends React.Component {
     render() {
         return(
             
+            
             <Container style={styles.container}>
+
             <Content>
 
-            <View style={styles.container}>
-            
-            
-            
-
-                <View style={styles.view1} >
-                    <View style={styles.viewP} > 
-                        <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('FuneralCoverScreen')}>
-                                <Image style={{width:80, height:80}}
-                                source={require('../assets/funeraIcon.png')}
-                                />
-                                <Text style={{color:"#00BFFF", fontSize:24}}>Funeral Cover</Text>
-                            </TouchableOpacity>   
-                        </View>                
-                    </View>
-                </View>
 
 
-                <View style={styles.view2} >
-                    <View style={styles.viewP} >
-                        <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('LegalCoverScreen')}>
-                                <Image style={{width:70, height:65}}
-                                source={require('../assets/legalCoverIcon.png')}
-                                />
-                                <Text style={{color:"#7cfc00", fontSize:24}}>  Legal Cover</Text> 
-                            </TouchableOpacity>    
-                        </View>                                
-                    </View>
-                </View>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={styles.container}>
+                    <View style={{alignItems:'center'}}>
+                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('FuneralCoverScreen')}>
+                            <View >
+                                <ImageBackground source={require('../assets/productbackgroundUno.png')} style={{width: 345, height: 100}}>
+                                    <View style={{alignItems:'center'}}>
+                                        <Text> </Text>
+                                    </View>
 
-                <View style={styles.view3} >
-                    <View style={styles.viewP} >
-                        <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('RewardScreen')}>
-                                <Image style={{width:80, height:80}}
-                                source={require('../assets/rewardIcon.png')}
-                                />
-                                <Text style={{color:"#ff69b4", fontSize:24}}> Reward</Text>
-                            </TouchableOpacity>    
-                        </View>                           
-                    </View>
-                </View>
-
-                <View style={styles.view4} >
-                    <View style={styles.viewP} >  
-                        <View >
-                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('SavingPlanScreen')}>
+                                    <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
                                     <Image style={{width:80, height:80}}
-                                    source={require('../assets/savingPlanIcon.png')}></Image>
+                                            source={require('../assets/funeraIcon.png')}
+                                            />
+                                        <View style={{alignItems:'center'}}>
+                                            <View style={{alignItems:'center'}}>
+                                                <Text> </Text>
+                                            </View>
+                                            <View style={{alignItems:'center'}}>
+                                                <Text style={{fontSize:20,color:'#43c3de'}}> Funeral Cover </Text>
+                                            </View>
+                                            <View style={{alignItems:'center'}}>
+                                                <Text >  </Text>
+                                            </View>
+                                        </View>
+                                    </View>
+
                                     
-                                    <Text style={{color:"#ff4500", fontSize:24}}> Saving Plan</Text> 
-                            </TouchableOpacity>    
-                        </View>                   
+                                </ImageBackground>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('LegalStackScreen')}>
+                            <View>
+                                <ImageBackground source={require('../assets/productbackgroundDos.png')} style={{width: 345, height: 100}}>
+                                    <View style={{alignItems:'center'}}>
+                                            <Text> </Text>
+                                        </View>
+
+                                        <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+                                        <Image style={{width:80, height:80}}
+                                                source={require('../assets/legalCoverIcon.png')}
+                                                />
+                                            <View style={{alignItems:'center'}}>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text> </Text>
+                                                </View>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text style={{fontSize:20,color:'#5fed85'}}> Legal Cover </Text>
+                                                </View>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text >  </Text>
+                                                </View>
+                                            </View>
+                                        </View>
+
+                                    
+                                </ImageBackground>
+                            </View>
+                        </TouchableOpacity>
+
+
+                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('RewardStackScreen')}>
+                            <View >
+                                <ImageBackground source={require('../assets/productbackgroundTres.png')} style={{width: 345, height: 100}}>
+                                    <View style={{alignItems:'center'}}>
+                                            <Text> </Text>
+                                        </View>
+
+                                        <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+                                        <Image style={{width:80, height:80}}
+                                                source={require('../assets/rewardIcon.png')}
+                                                />
+                                            <View style={{alignItems:'center'}}>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text> </Text>
+                                                </View>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text style={{fontSize:20,color:'#ff59d2'}}> Reward </Text>
+                                                </View>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text >  </Text>
+                                                </View>
+                                            </View>
+                                        </View>
+
+                                    
+                                </ImageBackground>
+                        </View>
+                        </TouchableOpacity>
+
+
+                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('SavinStackScreen')}>
+                        <View >
+                                <ImageBackground source={require('../assets/productbackgroundCuatro.png')} style={{width: 345, height: 100}}>
+                                    <View style={{alignItems:'center'}}>
+                                            <Text> </Text>
+                                        </View>
+
+                                        <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+                                        <Image style={{width:80, height:80}}
+                                                source={require('../assets/savingPlanIcon.png')}
+                                                />
+                                            <View style={{alignItems:'center'}}>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text> </Text>
+                                                </View>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text style={{fontSize:20,color:'#ff5969'}}> Savings Plan </Text>
+                                                </View>
+                                                <View style={{alignItems:'center'}}>
+                                                    <Text >  </Text>
+                                                </View>
+                                            </View>
+                                        </View>
+
+                                    
+                                            
+                                </ImageBackground>
+                        </View>
+                        </TouchableOpacity>
                     </View>
-                </View>
+
+
+                
+
+
 
                 </View>
-                <View><Text> </Text></View>
-
+                    
+            <View><Text> </Text></View>
+            </ScrollView>
                 </Content>
-            <View style={{ alignSelf : 'center', justifyContent: 'center'}}>
-                    <Text style={{color:"#ff4500", fontSize:24}}> Hi {this.state.email}!</Text> 
+            <View style={{flexDirection:'row', alignSelf : 'center', justifyContent: 'center'}}>
+                    <Text style={{color:'#808080',fontWeight:'700', fontSize:14}}> Hi {this.state.email}!</Text> 
                             <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress = {this.signOutUser}>
 
-                            <Text style={{color:"#ff4500", fontSize:24}}> Logout</Text> 
+                            <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:14}}> Logout</Text> 
                             </TouchableOpacity>    
             </View>
+
+            <View><Text> </Text></View>
                 
 
             
@@ -117,8 +194,7 @@ export default ProductScreen;
 const styles = StyleSheet.create({
 
     container: {
-        flex:1,
-        flexWrap:'wrap',
+        flex:1,       
         borderBottomColor:"#212533",
 
         backgroundColor: "#212533"
