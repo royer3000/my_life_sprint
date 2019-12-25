@@ -363,7 +363,7 @@ const ProductDrawerNavigator = createDrawerNavigator({
     SettingMyLife: {
         screen: SettingMyLife,
         navigationOptions:{
-            title:"Setting",
+            title:"Settings",
         }
     },
     TutorialMyLife: {
@@ -381,7 +381,7 @@ const ProductDrawerNavigator = createDrawerNavigator({
 
     contentOptions: {
 
-        activeBackgroundColor:"#1D212D",
+        activeBackgroundColor:null,
         activeTintColor:"#FFFFFF",
         inactiveTintColor: "#FFFFFF",
         labelStyle:{ 

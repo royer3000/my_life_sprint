@@ -14,7 +14,7 @@ export default Sidebar = props => (
         height: 200,}} source={require('../assets/Drawer1.png')} />
 
     
-
+<View><Text> </Text></View>
 
 
     <ImageBackground  style= { styles.backgroundImage } source={require('../assets/Drawer2.png')} >
@@ -23,15 +23,15 @@ export default Sidebar = props => (
 
                 <DrawerNavigatorItems {...props}/>
 
-
-
+                <View><Text> </Text></View>
+                <View><Text> </Text></View>
             </View>
+            
             <View><Text> </Text></View>
             <View><Text> </Text></View>
             <View><Text> </Text></View>
             <View><Text> </Text></View>
-            <View><Text> </Text></View>
-            <View><Text> </Text></View>
+            
 
     </ImageBackground>
                 
