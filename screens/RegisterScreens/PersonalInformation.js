@@ -6,11 +6,13 @@ import * as firebase from 'firebase';
 class PersonalInformation extends React.Component {
 
     state = {
-        name:"",
+        name: this.props.navigation.getParam('userName'),
         email: this.props.navigation.getParam('userMail'),
+        last_name: this.props.navigation.getParam('userlast_name'),
         password: this.props.navigation.getParam('userPassword'),
-        errorMessage: null
-       
+        phone: this.props.navigation.getParam('UserPhone'),
+        errorMessage: null,
+        photo:null,
     };
 
     handleSignUp = () => {
@@ -220,7 +222,7 @@ class PersonalInformation extends React.Component {
                             </TouchableOpacity>
                             <View><Text> {"                       "} {"                       "}</Text></View>
 
-                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('PreviousJobInformation', { userMail: this.state.email, userPassword: this.state.password,CellPhone: this.state.CellPhone  })}>
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('PreviousJobInformation', { userName: this.state.name, userMail: this.state.email, userPassword: this.state.password,userlast_name: this.state.last_name, userPhone:this.state.phone  })}>
 
                             <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:18}}> Step 2/3 {">"}</Text> 
                             </TouchableOpacity>   

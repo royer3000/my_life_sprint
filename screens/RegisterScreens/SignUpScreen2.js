@@ -1,47 +1,23 @@
 import React from 'react';
-import {View, Text, Alert, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView} from "react-native";
+import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
+import * as firebase from 'firebase';
 
 class SignUpScreen extends React.Component {
 
     state = {
         email: "",
-        name: "",
-        last_name: "",
-        phone: "",
+        password: "",
         errorMessage: null
-
+       
     };
 
     handleSignUp = () => {
-
-        fetch('http://seoimagen.com/mylife/guardar.php', {
-            method: 'POST',
-            headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-
-            user_email: this.state.email,
-
-            user_name: this.state.name,
-
-            last_name: this.state.last_name,
-
-            phone: this.state.phone,
-
-            pro: 'app-registro'
-
-        })
-
-        }).then((response) => response.json())
-            .then((responseJson) => {
-            Alert.alert(responseJson);
-        }).catch((error) => {
-            error => this.setState({errorMessage: error})
-        });
-
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials => {
+            return userCredentials.user.updateProfile({
+                displayName: this.state.name
+            });
+        }).catch(error => this.setState({errorMessage: error.message}));
 
     };
 
@@ -49,24 +25,24 @@ class SignUpScreen extends React.Component {
 
     render(){
         return(
-
-
+                       
+            
       <Container style={styles.container}>
-
+      
 
 
       <Header style={styles.container}>
-
+          
           <Left  style={{flexDirection: 'row', justifyContent: 'flex-start',marginTop:35, marginLeft:-8}}>
 
-
+  
               <Body>
-              <View style={{paddingHorizontal:1, flexDirection:'row', paddingVertical:1}}><View><Text style={{fontSize:18, color: 'white', fontWeight:'700' }}></Text></View></View>
+              <View style={{paddingHorizontal:1, flexDirection:'row', paddingVertical:1}}><View><Text style={{fontSize:18, color: 'white', fontWeight:'700' }}></Text></View></View>   
 
               </Body>
 
           </Left>
-
+          
 
 
 
@@ -75,9 +51,9 @@ class SignUpScreen extends React.Component {
 
       <View style={{alignItems:'center'}}>
 
-
+              
 <View style={{paddingTop:5 }} >
-
+    
     <View style={{width: 355, height: 800, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:0,borderBottomRightRadius:0, paddingTop:1,}}>
         <View style={{alignItems:'center', paddingHorizontal:5}}>
             <ScrollView showsVerticalScrollIndicator={false} scrollEventThrottle={1}>
@@ -93,11 +69,11 @@ class SignUpScreen extends React.Component {
                     source={require('../../assets/logo2.png')}
                     />
                 </View>
-
+                
                 <View><Text> </Text></View>
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
+            
                     <TextInput
                         style={{ width:325, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
                         placeholder ="Email"
@@ -106,8 +82,8 @@ class SignUpScreen extends React.Component {
                         value = {this.state.email}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
-                        autoCorrect = {false}
-
+                        autoCorrect = {false} 
+                        
                         placeholderTextColor = "#ffffff"
                     />
 
@@ -116,34 +92,17 @@ class SignUpScreen extends React.Component {
                 <View><Text> </Text></View>
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
+            
                     <TextInput
                         style={{ width:325, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
-                        placeholder ="Name"
+                        placeholder ="Password"
                         returnKeyType = "go"
-
+                        
                         placeholderTextColor = "#ffffff"
-
+                        secureTextEntry
                         autoCapitalize = "none"
-                        onChangeText = {name => this.setState({name})}
-                        value = {this.state.name}
-                    />
-                </View>
-
-                <View><Text> </Text></View>
-
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TextInput
-                        style={{ width:325, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
-                        placeholder ="Last Name"
-                        returnKeyType = "go"
-
-                        placeholderTextColor = "#ffffff"
-
-                        autoCapitalize = "none"
-                        onChangeText = {last_name => this.setState({last_name})}
-                        value = {this.state.last_name}
+                        onChangeText = {password => this.setState({password})}
+                        value = {this.state.password}                
                     />
                 </View>
 
@@ -154,12 +113,12 @@ class SignUpScreen extends React.Component {
                         style={{ width:325, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
                         placeholder ="Phone Number"
                         returnKeyType ="next"
-                        onChangeText = {phone => this.setState({phone})}
-                        value = {this.state.phone}
+                        onChangeText = {phoneNumber => this.setState({phoneNumber})}
+                        value = {this.state.phoneNumber}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
-                        autoCorrect = {false}
-
+                        autoCorrect = {false} 
+                        
                         placeholderTextColor = "#ffffff"
                     />
         <View><Text> </Text></View>
@@ -171,11 +130,10 @@ class SignUpScreen extends React.Component {
                     <View><Text> </Text></View>
 
                 <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
-
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('PersonaleInformation', { userName: this.state.name, userMail: this.state.email, userPassword: this.state.password,userlast_name: this.state.last_name, userPhone:this.state.phone  })} >
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('PersonaleInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
                         <Image
                             style={{width:270, height: 41}}
-                            source={require('../../assets/Nextbutton.png')}
+                            source={require('../../assets/SignInBotton.png')}
                         />
                     </TouchableOpacity>
                 </View>

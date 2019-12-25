@@ -16,10 +16,11 @@ const options = {
 class PreviousJobInformation extends React.Component {
 
     state = {
-        name:"",
+        name: this.props.navigation.getParam('userName'),
         email: this.props.navigation.getParam('userMail'),
+        last_name: this.props.navigation.getParam('userlast_name'),
         password: this.props.navigation.getParam('userPassword'),
-        CellPhone: this.props.navigation.getParam('UserCellPhone'),
+        phone: this.props.navigation.getParam('UserPhone'),
         errorMessage: null,
         photo:null,
        
@@ -124,8 +125,8 @@ class PreviousJobInformation extends React.Component {
                         style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
                         placeholder ="00"
                         returnKeyType ="next"
-                        onChangeText = {CellPhone => this.setState({CellPhone})}
-                        value = {this.state.CellPhone}
+                        onChangeText = {phone => this.setState({phone})}
+                        value = {this.state.phone}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
@@ -201,7 +202,7 @@ class PreviousJobInformation extends React.Component {
                     </TouchableOpacity>
                     <View><Text> {"                       "} {"                       "}</Text></View>
 
-                    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('EmergencyContactInformation', { userMail: this.state.email, userPassword: this.state.password,CellPhone: this.state.CellPhone   })}>
+                    <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('EmergencyContactInformation', { userName: this.state.name, userMail: this.state.email, userPassword: this.state.password,userlast_name: this.state.last_name, userPhone:this.state.phone  })}>
 
                     <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:18}}>   Step 3/3 {">"}</Text> 
                     </TouchableOpacity>   

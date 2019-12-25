@@ -1,25 +1,52 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView, Picker} from "react-native";
+import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView, Picker, Modal} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
 import * as firebase from 'firebase';
 
 class BanckDetails extends React.Component {
 
     state = {
-        name:"",
+        name: this.props.navigation.getParam('userName'),
         email: this.props.navigation.getParam('userMail'),
+        last_name: this.props.navigation.getParam('userlast_name'),
         password: this.props.navigation.getParam('userPassword'),
-        CellPhone: this.props.navigation.getParam('UserCellPhone'),
-        errorMessage: null
-       
+        phone: this.props.navigation.getParam('UserPhone'),
+        errorMessage: null,
+        photo:null,
+        showMe: false
+        
     };
 
+
     handleSignUp = () => {
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials => {
-            return userCredentials.user.updateProfile({
-                displayName: this.state.name
-            });
-        }).catch(error => this.setState({errorMessage: error.message}));
+
+        fetch('http://seoimagen.com/mylife/guardar.php', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+
+            user_email: this.state.email,
+
+            user_name: this.state.name,
+
+            last_name: this.state.last_name,
+
+            phone: this.state.phone,
+
+            pro: 'app-registro'
+
+        })
+
+        }).then((response) => response.json())
+            .then((responseJson) => {
+            Alert.alert(responseJson);
+        }).catch((error) => {
+            error => this.setState({errorMessage: error})
+        });
+
 
     };
 
@@ -32,6 +59,19 @@ class BanckDetails extends React.Component {
 
 
             <Content>
+
+
+            <Modal transparent={true} visible={this.state.showMe}>
+                        <View style={{display:"flex" , flex:1 ,justifyContent:'center', alignItems:'center', with:280, height:280}}>
+                        <TouchableOpacity onPress={ this.handleSignUp}>
+                                            <Image
+                                                style={{width:280, height: 280}}
+                                                source={require('../../assets/success.png')}
+                                            />
+                                        </TouchableOpacity>
+                            </View>
+
+            </Modal>
             <View style={{alignItems:'center'}}>
             <View style={{paddingTop:5 }} >
     
@@ -150,9 +190,11 @@ class BanckDetails extends React.Component {
                     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                 {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
             </View>
-
+                    
                 <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity onPress={this.handleSignUp}>
+                    <TouchableOpacity onPress={()=>{
+                            this.setState({ showMe: true})
+                        }}>
                         <Image
                             style={{width:270, height: 41}}
                             source={require('../../assets/SignInBotton.png')}
