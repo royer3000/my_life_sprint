@@ -61,12 +61,10 @@ export default class DebitOrderForm extends React.Component{
             <Content>
 
             <Modal transparent={true} visible={this.state.showMe}>
-                        <View style={{display:"flex" , flex:1 ,justifyContent:'center', alignItems:'center', with:300, height:300}}>
-                        <TouchableOpacity onPress={()=>{
-                            this.setState({ showMe: false})
-                        }}>
+                        <View style={{display:"flex" , flex:1 ,justifyContent:'center', alignItems:'center', with:280, height:280}}>
+                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('ProductScreen')}>
                                             <Image
-                                                style={{width:275, height: 300}}
+                                                style={{width:280, height: 280}}
                                                 source={require('../../../assets/success.png')}
                                             />
                                         </TouchableOpacity>

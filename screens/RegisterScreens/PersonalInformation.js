@@ -167,7 +167,7 @@ class PersonalInformation extends React.Component {
 
                     <TextInput
                         style={{ width:325, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white', fontSize:13   }}
-                        placeholder ="Suburb"
+                        placeholder ="Suburbs"
                         returnKeyType ="next"
                         onChangeText = {SubUrb => this.setState({SubUrb})}
                         value = {this.state.SubUrb}

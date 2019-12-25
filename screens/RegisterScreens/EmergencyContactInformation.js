@@ -76,7 +76,7 @@ class EmergencyContactInformation extends React.Component {
                                           <Picker style={{width:'100%', height:35, color:'black', fontSize:13,  }} selectedValue={this.state.PickerValue}
                                           onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
                                             <Picker.Item label ='Female' value='Female'/>
-                                            <Picker.Item label ='male' value='male'/>
+                                            <Picker.Item label ='Male' value='Male'/>
                                           </Picker>
                                       </View>
 

@@ -2,6 +2,16 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, TextInput,TouchableOpacity, ScrollView} from "react-native";
 import { Icon, Button, Container, Header, Content, Left, Body, Title,Right, Card, CardItem, Thumbnail} from 'native-base';
 import * as firebase from 'firebase';
+import ImagePicker from 'react-native-image-picker';
+
+const options = {
+    title: 'Select Avatar',
+    customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+  };
 
 class PreviousJobInformation extends React.Component {
 
@@ -10,10 +20,11 @@ class PreviousJobInformation extends React.Component {
         email: this.props.navigation.getParam('userMail'),
         password: this.props.navigation.getParam('userPassword'),
         CellPhone: this.props.navigation.getParam('UserCellPhone'),
-        errorMessage: null
+        errorMessage: null,
+        photo:null,
        
     };
-
+ 
     handleSignUp = () => {
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials => {
             return userCredentials.user.updateProfile({
@@ -22,11 +33,22 @@ class PreviousJobInformation extends React.Component {
         }).catch(error => this.setState({errorMessage: error.message}));
 
     };
+    handleChoosePhoto = () => {
+        const options = {
+          noData: true,
+        };
+        ImagePicker.launchImageLibrary(options, response => {
+          if (response.uri) {
+            this.setState({ photo: response });
+          }
+        });
+      };
 
 
 
 
     render(){
+        const { photo } = this.state;
         return(
             <Container style={styles.container}>
 
@@ -55,7 +77,7 @@ class PreviousJobInformation extends React.Component {
                             <View><Text> {"       "} {"       "} </Text></View>
                             
                             <View style={{ borderWidth:1, borderColor:'white', with:50, hight:10 }} >
-                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('PreviousJobInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} oonPress={this.launchCamera}>
                             <View><Text> </Text></View>
                             <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:13,  }}>{"      "}  {"      "} Camera {"      "} {"      "}  </Text> 
                             <View><Text> </Text></View>
@@ -154,7 +176,7 @@ class PreviousJobInformation extends React.Component {
                             <View><Text> {"       "} {"       "} </Text></View>
                             
                             <View style={{ borderWidth:1, borderColor:'white', with:50, hight:10 }} >
-                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress={()=>this.props.navigation.navigate('PreviousJobInformation', { userMail: this.state.email, userPassword: this.state.password  })}>
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-end'}} onPress = {()=>this.props.navigation.goBack()}>
                             <View><Text> </Text></View>
                             <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:13,  }}>{"      "}  {"      "} Camera {"      "} {"      "}  </Text> 
                             <View><Text> </Text></View>

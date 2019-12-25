@@ -49,7 +49,7 @@ signOutUser = () => {
                                         <View style={{alignItems:'center'}}>
 
                                             <View style={{alignItems:'center'}}>
-                                                <Text style={{fontSize:20,color:'#ffffff'}}>Clientelle </Text>
+                                                <Text style={{fontSize:20,color:'#ffffff'}}>Clientèle </Text>
                                             </View>
                                             <View style={{alignItems:'flex-start'}}>
                                                 <Text style={{fontSize:14,color:'white'}}>      R200/pm R30000</Text>
@@ -90,7 +90,7 @@ signOutUser = () => {
                                         </View>
                                         <View style={{paddingStart:120,}}>
                                           <Image style={{width:65, height:65,borderTopRightRadius:10,borderBottomRightRadius:10,borderBottomLeftRadius:10,borderTopLeftRadius:10}}
-                                            source={require('../../../assets/fun1.png')}
+                                            source={require('../../../assets/fun2.png')}
                                             />
                                           </View>
                                     </View>

@@ -114,12 +114,21 @@ class BanckDetails extends React.Component {
                                           <Text style={{color:'white', fontSize:13}}> Start Date*</Text>
                     </View>
 
-                    <View style={{ borderWidth:1, borderColor:'black', backgroundColor:'white' }}>
-                                          <Picker style={{width:'100%', height:35, color:'black', fontSize:13  }} selectedValue={this.state.PickerValue}
-                                          onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
-                                            <Picker.Item label ='mm/dd/yy' value='Lorem'/>
-
-                                          </Picker>
+                    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                
+                        <TextInput
+                            style={{ width:330, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
+                            placeholder ="mm/dd/yyyy"
+                            returnKeyType ="next"
+                            onChangeText = {WorkPhone => this.setState({WorkPhone})}
+                            value = {this.state.WorkPhone}
+                            keyboardType = "email-address"
+                            autoCapitalize ="none"
+                            autoCorrect = {false} 
+                        
+                            placeholderTextColor = "#FFFFFF"
+                        />
+    
                     </View>
 
                     <View style={{paddingVertical:5}}>
@@ -131,7 +140,7 @@ class BanckDetails extends React.Component {
                                           onValueChange={(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
                                             <Picker.Item label ='Regional Manager' value='FemaRegional Managerle'/>
                                             <Picker.Item label ='Province Manager' value='Province Manager'/>
-                                            <Picker.Item label ='Agent Sales' value='Agent Sales'/>
+                                            <Picker.Item label ='Sales Agent' value='Agent Sales'/>
                                           </Picker>
                     </View>
 

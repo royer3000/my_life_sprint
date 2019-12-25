@@ -66,7 +66,7 @@ signOutUser = () => {
                                       </View>
 
                                       <View >
-                                          <Text style={{color:'white', fontSize:13}}> Bank</Text>
+                                          <Text style={{color:'white', fontSize:13}}> Surname</Text>
                                       </View>
 
                                       <View style={{paddingVertical:5}}>

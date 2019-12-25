@@ -76,7 +76,7 @@ export default class LoginScreen extends React.Component{
                 <View><Text> </Text></View>
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                <TouchableOpacity onPress={this.handleLogin}>
+                <TouchableOpacity onPress={this.handleLogin} >
                     <Image
                         style={{width:270, height: 41}}
                         source={require('../../assets/bottomLogin.png')}
