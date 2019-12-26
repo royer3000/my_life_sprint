@@ -47,66 +47,53 @@ signOutUser = () => {
                           <View style={{width: 340, height: 570, backgroundColor:'#292d3a' ,alignSelf:'flex-end',borderTopRightRadius:0,borderBottomRightRadius:0, paddingTop:1,}}>
                               <View style={{alignItems:'flex-start', paddingHorizontal:5}}>
                                   <ScrollView showsVerticalScrollIndicator={false} scrollEventThrottle={1}>
+                                    <View style={{}}><Text> </Text></View>
+
+                                      <TouchableOpacity onPress={()=>this.props.navigation.navigate('DebitOrderFrom')}>
+
+                                      <View style={{ width:325, height: 35, borderColor: "#ACACAC",backgroundColor: "#1a1d2a",paddingHorizontal:13,paddingVertical:10}}>
+
+                                      <View style={{}}><Text style={{color:'white'}}>R10,000 /  R100m</Text></View>
 
 
-                                      <View style={{paddingVertical:5}}>
-                                          <TextInput
-                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
-                                              placeholder ="R10,000 /  R100m"
-                                              returnKeyType ="next"
-                                              onChangeText={(text) => this.setState({text})}
-                                              value = {this.state.text}
-                                              keyboardType = "email-address"
-                                              autoCapitalize ="none"
-                                              autoCorrect = {false}             
-                                              placeholderTextColor = "#FFFFFF"
-                                          />
                                       </View>
+                                      </TouchableOpacity>
+
+                                      <View style={{}}><Text> </Text></View>
+
+                                      <TouchableOpacity onPress={()=>this.props.navigation.navigate('DebitOrderFrom')}>
+
+                                      <View style={{ width:325, height: 35, borderColor: "#ACACAC",backgroundColor: "#1a1d2a",paddingHorizontal:13,paddingVertical:10}}>
+
+                                      <View style={{}}><Text style={{color:'white'}}>R20,000 / R200m</Text></View>
 
 
-                                      <View style={{paddingVertical:5}}>
-                                          <TextInput
-                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
-                                              placeholder ="R20,000 / R200m"
-                                              returnKeyType ="next"
-                                              onChangeText={(text) => this.setState({text})}
-                                              value = {this.state.text}
-                                              keyboardType = "email-address"
-                                              autoCapitalize ="none"
-                                              autoCorrect = {false}             
-                                              placeholderTextColor = "#FFFFFF"
-                                          />
                                       </View>
+                                      </TouchableOpacity>
 
-                                      <View style={{paddingVertical:5}}>
-                                          <TextInput
-                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
-                                              placeholder ="R30,000 / R300m"
-                                              returnKeyType ="next"
-                                              onChangeText={(text) => this.setState({text})}
-                                              value = {this.state.text}
-                                              keyboardType = "email-address"
-                                              autoCapitalize ="none"
-                                              autoCorrect = {false}             
-                                              placeholderTextColor = "#FFFFFF"
-                                          />
+                                      <View style={{}}><Text> </Text></View>
+
+                                      <TouchableOpacity onPress={()=>this.props.navigation.navigate('DebitOrderFrom')}>
+
+                                      <View style={{ width:325, height: 35, borderColor: "#ACACAC",backgroundColor: "#1a1d2a",paddingHorizontal:13,paddingVertical:10}}>
+
+                                      <View style={{}}><Text style={{color:'white'}}>R30,000 / R300m</Text></View>
+
+
                                       </View>
+                                      </TouchableOpacity>
 
+                                      <View style={{}}><Text> </Text></View>
+                                      
+                                      <TouchableOpacity onPress={()=>this.props.navigation.navigate('DebitOrderFrom')}>
 
+                                      <View style={{ width:325, height: 35, borderColor: "#ACACAC",backgroundColor: "#1a1d2a",paddingHorizontal:13,paddingVertical:10}}>
+                                      
+                                      <View style={{}}><Text style={{color:'white'}}>R40,000 / R400m</Text></View>
 
-                                      <View style={{paddingVertical:5}}>
-                                          <TextInput
-                                              style={{ width:325, height: 35, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white', fontSize:13 }}
-                                              placeholder ="R40,000 / R400m"
-                                              returnKeyType ="next"
-                                              onChangeText={(text) => this.setState({text})}
-                                              value = {this.state.text}
-                                              keyboardType = "email-address"
-                                              autoCapitalize ="none"
-                                              autoCorrect = {false}             
-                                              placeholderTextColor = "#FFFFFF"
-                                          />
+                                    
                                       </View>
+                                      </TouchableOpacity>
 
                                         
 
@@ -125,16 +112,6 @@ signOutUser = () => {
                                   <View style={{}}><Text> </Text></View>
                                   <View style={{}}><Text> </Text></View>
                                   
-                              <View style={{alignItems: 'center', justifyContent: 'center', paddingVertical:0}}>
-                                  <TouchableOpacity onPress={()=>this.props.navigation.navigate('DebitOrderFrom')}>
-                                      <Image
-                                          style={{width:275, height: 41}}
-                                          source={require('../../../assets/sumitbottton.png')}
-                                      />
-                                  </TouchableOpacity>
-                              </View>
-                              
-
 
 
 

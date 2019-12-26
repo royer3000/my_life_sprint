@@ -5,6 +5,7 @@ import { createBottomTabNavigator,createMaterialTopTabNavigator } from 'react-na
 import { createStackNavigator} from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import LoginScreen from './screens/AppSwitchNavigator/LoginScreen';
+import RecoveryScreen from './screens/AppSwitchNavigator/RecoveryScreen';
 import WorkInProgress from './screens/DrawerScreen/WorkInProgress';
 import PotencialEarning from './screens/DrawerScreen/PotencialEarning';
 import SalesRecord from './screens/DrawerScreen/SalesRecord';
@@ -480,7 +481,15 @@ const AuthStack = createStackNavigator({
 
               
         }) 
+    }, 
+    RecoveryScreen:{
+        screen: RecoveryScreen,
+        navigationOptions:{
+            header:null,
+
+        }
     },
+    
 })
 
 

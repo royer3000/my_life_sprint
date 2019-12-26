@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default class LoginScreen extends React.Component{ 
+export default class RecoveryScreen extends React.Component{ 
 
     state = {
         email: "",
@@ -48,7 +48,7 @@ export default class LoginScreen extends React.Component{
             
                 <TextInput
                     style={{ width:272, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13, color:'white' }}
-                    placeholder ="Username"
+                    placeholder ="e-mail"
                     returnKeyType ="next"
                     onChangeText = {email => this.setState({email})}
                     value = {this.state.email}
@@ -59,56 +59,25 @@ export default class LoginScreen extends React.Component{
                 />
 
                 <View><Text> </Text></View>
-                <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            
-                    <TextInput
-                        style={{ width:272, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white'   }}
-                        placeholder ="Password"
-                        returnKeyType = "go"
-                    
-                        placeholderTextColor = "#FFFFFF"
-                        secureTextEntry
-                        autoCapitalize = "none"
-                        onChangeText = {password => this.setState({password})}
-                        value = {this.state.password}                
-                    />
-                </View>
-
                 <View><Text> </Text></View>
-            <View style={{ alignItems: 'center', justifyContent: 'center', marginHorizontal:15 }}>
-                {this.state.errorMessage && <Text style={{color:"red", fontSize: 12, alignContent:'center', justifyContent: 'center'}}>{this.state.errorMessage}</Text>}
-            </View>
-            <View><Text> </Text></View>
-
 
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 <TouchableOpacity onPress={this.handleLogin} >
                     <Image
                         style={{width:270, height: 41}}
-                        source={require('../../assets/bottomLogin.png')}
+                        source={require('../../assets/Recover.png')}
                     />
                 </TouchableOpacity>
             </View>
 
-            <View><Text> </Text></View>
-            <View style={{flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>
-                
-                
-                    <Text style={{color: "#808080", fontSize: 12}}>Forgot password? </Text>
-                    
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate('RecoveryScreen')}>  
-                    <Text style={{color:"#7fffd4",fontSize: 12}} > Click Here </Text>
-                    
-                </TouchableOpacity>
-            </View>
-
             </View>
 
             
 
             
-
-
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
+            </View>
 
             <View style={{flex:2,flexDirection: 'row',alignItems: 'flex-end', justifyContent: 'center'}}>
                 

@@ -42,7 +42,8 @@ class BanckDetails extends React.Component {
 
         }).then((response) => response.json())
             .then((responseJson) => {
-            Alert.alert(responseJson);
+            //Alert.alert(responseJson);
+            this.props.navigation.navigate('Loading');
         }).catch((error) => {
             error => this.setState({errorMessage: error})
         });
@@ -66,7 +67,7 @@ class BanckDetails extends React.Component {
                         <TouchableOpacity onPress={ this.handleSignUp}>
                                             <Image
                                                 style={{width:280, height: 280}}
-                                                source={require('../../assets/success.png')}
+                                                source={require('../../assets/successLog.png')}
                                             />
                                         </TouchableOpacity>
                             </View>
@@ -185,11 +186,15 @@ class BanckDetails extends React.Component {
                     </View>
 
                     <View><Text> </Text></View>
+                <View><Text> </Text></View>
 
 
                     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                 {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
             </View>
+
+            <View><Text> </Text></View>
+                <View><Text> </Text></View>
                     
                 <View style={{flex:2, alignItems: 'center', justifyContent: 'center'}}>
                     <TouchableOpacity onPress={()=>{

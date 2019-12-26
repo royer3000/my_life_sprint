@@ -104,6 +104,8 @@ class EmergencyContactInformation extends React.Component {
                     />
 
                 </View>
+                <View><Text> </Text></View>
+                <View><Text> </Text></View>
              
 
 
@@ -111,6 +113,7 @@ class EmergencyContactInformation extends React.Component {
                     {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
                 </View>
 
+                <View><Text> </Text></View>
                 <View><Text> </Text></View>
 
 

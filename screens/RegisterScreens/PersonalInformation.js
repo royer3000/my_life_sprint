@@ -79,8 +79,8 @@ class PersonalInformation extends React.Component {
                         style={{ width:325, height: 40, borderColor: "#ACACAC", borderWidth: 0.23,backgroundColor: "#1a1d2a",paddingHorizontal:13,color:'white', fontSize:13   }}
                         placeholder ="Surname"
                         returnKeyType ="next"
-                        onChangeText = {Surname => this.setState({Surname})}
-                        value = {this.state.Surname}
+                        onChangeText = {last_name => this.setState({last_name})}
+                        value = {this.state.last_name}
                         keyboardType = "email-address"
                         autoCapitalize ="none"
                         autoCorrect = {false} 
@@ -205,12 +205,14 @@ class PersonalInformation extends React.Component {
 
                 </View>
 
+                <View><Text> </Text></View>
+                <View><Text> </Text></View>
                
 
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     {this.state.errorMessage && <Text style={{color:"red", fontSize: 13, alignContent:'center'}}>{this.state.errorMessage}</Text>}
                 </View>
-
+                <View><Text> </Text></View>
                 <View><Text> </Text></View>
 
 
