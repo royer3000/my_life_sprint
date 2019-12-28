@@ -34,11 +34,6 @@ export default class DebitOrderForm extends React.Component{
       }
     
 
-    componentDidMount(){
-        const {email, displayName} = firebase.auth().currentUser;
-
-        this.setState({email, displayName});
-    }
 
     signOutUser = () => {
         firebase.auth().signOut();

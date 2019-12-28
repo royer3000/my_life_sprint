@@ -412,6 +412,7 @@ const AppStack = createStackNavigator({
             header:null
         }
     }, 
+
 })
 
 
@@ -489,6 +490,13 @@ const AuthStack = createStackNavigator({
 
         }
     },
+
+    Home:{
+        screen: ProductDrawerNavigator,
+        navigationOptions:{
+            header:null
+        }
+    }, 
     
 })
 

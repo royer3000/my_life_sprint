@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, View, Text, Image,TextInput,TouchableOpacity,} from 'react-native'
+import {StyleSheet, View, Text, Image,TextInput,TouchableOpacity, Keyboard,} from 'react-native'
 import { createStackNavigator} from 'react-navigation-stack';
 import * as firebase from 'firebase';
 
@@ -25,9 +25,34 @@ export default class LoginScreen extends React.Component{
     };
 
     handleLogin = () => {
-        const {email, password} = this.state;
+        fetch('http://seoimagen.com/mylife/apiapp.php', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
 
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(error => this.setState({errorMessage: error.message}));
+            user_email: this.state.email,
+            user_password: this.state.password,
+            pro: 'app-login'
+
+        })
+
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                if(responseJson == "ok"){
+                    
+
+                    
+                    this.props.navigation.navigate('App', {user_email: this.state.email});
+                    
+                }
+        }).catch((error) => {
+            error => this.setState({errorMessage: error})
+        });
+
+        Keyboard.dismiss();
     };
 
     render(){

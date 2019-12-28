@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {StyleSheet, View, Text, Image,TextInput,TouchableOpacity,} from 'react-native'
 import { createStackNavigator} from 'react-navigation-stack';
-import * as firebase from 'firebase';
 
 
 const styles = StyleSheet.create({
@@ -20,14 +19,35 @@ export default class RecoveryScreen extends React.Component{
     state = {
         email: "",
         password:"",
-        errorMessage: null
-       
+        errorMessage: null,
+        disable : false
+        
     };
 
-    handleLogin = () => {
-        const {email, password} = this.state;
 
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(error => this.setState({errorMessage: error.message}));
+   
+
+    handleLogin = () => {
+        fetch('http://seoimagen.com/mylife/apiapp.php', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+
+            user_email: this.state.email,
+
+            pro: 'app-password-recovery'
+
+        })
+
+        }).then((response) => response.json())
+            .then((responseJson) => {
+            //alert(responseJson);
+        }).catch((error) => {
+            error => this.setState({errorMessage: error})
+        });
     };
 
     render(){

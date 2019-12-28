@@ -11,17 +11,12 @@ class ProductScreen extends React.Component {
 
     state = {
 
-        email: "",
+        email: this.props.navigation.getParam('user_email'),
         displayName: "",
         
     };
     
 
-    componentDidMount(){
-        const {email, displayName} = firebase.auth().currentUser;
-
-        this.setState({email, displayName});
-    }
 
     signOutUser = () => {
         firebase.auth().signOut();
@@ -172,7 +167,7 @@ class ProductScreen extends React.Component {
                 </Content>
             <View style={{flexDirection:'row', alignSelf : 'center', justifyContent: 'center'}}>
                     <Text style={{color:'#808080',fontWeight:'700', fontSize:14}}> Hi {this.state.email}!</Text> 
-                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress = {this.signOutUser}>
+                            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'flex-start'}} onPress={()=>this.props.navigation.navigate('Auth')}>
 
                             <Text style={{color:'#7fffd4',fontWeight:'400', fontSize:14}}> Logout</Text> 
                             </TouchableOpacity>    

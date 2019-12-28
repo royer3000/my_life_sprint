@@ -15,7 +15,7 @@ class SignUpScreen extends React.Component {
 
     handleSignUp = () => {
 
-        fetch('http://seoimagen.com/mylife/guardar.php', {
+        fetch('http://seoimagen.com/mylife/apiapp.php', {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
